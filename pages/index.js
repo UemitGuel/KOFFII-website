@@ -1,25 +1,28 @@
 import { getCoffeePlaces } from '../lib/places';
-import { Box } from '@chakra-ui/react';
+import { SimpleGrid, Box } from '@chakra-ui/react';
 import CoffeeCard from "../components/coffeeCard";
 import React from "react";
 
 
 export async function getStaticProps() {
-  const allPostsData = await getCoffeePlaces()
+  const allPlacesData = await getCoffeePlaces()
   return {
     props: {
-      allPostsData
+      allPlacesData
     }
   }
 }
 
 
 export default function Home(props) {
-  console.log(props)
-  const object = props.allPostsData[0]
-  console.log(object)
+  const placesData = props.allPlacesData
+  console.log(placesData)
 
   return (
-    <CoffeeCard name={object.fields.Name} hood={object.fields.hood} />
+    <SimpleGrid spacing={8} minChildWidth='120px'>
+      {placesData.map((placesData) => (
+        <CoffeeCard key={placesData.id} name={placesData.fields.name} hood={placesData.fields.hood} />
+      ))}
+    </SimpleGrid>
   )
 }
