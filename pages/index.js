@@ -1,6 +1,19 @@
 import Head from 'next/head'
+import { getCoffeePlaces } from '../lib/places'
 
-export default function Home() {
+export async function getStaticProps() {
+  const allPostsData = await getCoffeePlaces()
+  console.log(allPostsData)
+  return {
+    props: {
+      allPostsData
+    }
+  }
+}
+
+
+export default function Home(props) {
+
   return (
     <div className="container">
       <Head>
