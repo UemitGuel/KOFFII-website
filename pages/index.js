@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { getCoffeePlaces } from '../lib/places'
 import { Box } from '@chakra-ui/react'
 
