@@ -19,10 +19,13 @@ export default function Home(props) {
   console.log(placesData)
 
   return (
-    <SimpleGrid spacing={8} minChildWidth='120px'>
+    <Box padding='16'>
+      <SimpleGrid columns={5} spacing={8}>
       {placesData.map((placesData) => (
-        <CoffeeCard key={placesData.id} name={placesData.fields.name} hood={placesData.fields.hood} />
+        <CoffeeCard key={placesData.id} name={placesData.fields.name} hood={placesData.fields.hood} notes={placesData.fields.notes} />
       ))}
-    </SimpleGrid>
+      </SimpleGrid>
+    </Box>
+    
   )
 }
