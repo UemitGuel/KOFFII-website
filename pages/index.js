@@ -1,9 +1,11 @@
-import { getCoffeePlaces } from '../lib/places'
-import { Box } from '@chakra-ui/react'
+import { getCoffeePlaces } from '../lib/places';
+import { Box } from '@chakra-ui/react';
+import CoffeeCard from "../components/coffeeCard";
+import React from "react";
+
 
 export async function getStaticProps() {
   const allPostsData = await getCoffeePlaces()
-  console.log(allPostsData)
   return {
     props: {
       allPostsData
@@ -13,10 +15,11 @@ export async function getStaticProps() {
 
 
 export default function Home(props) {
+  console.log(props)
+  const object = props.allPostsData[0]
+  console.log(object)
 
   return (
-    <Box bg='tomato' w='100%' p={4} color='white'>
-      This is the Box
-    </Box>
+    <CoffeeCard name={object.fields.Name} hood={object.fields.hood} />
   )
 }
