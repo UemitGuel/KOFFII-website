@@ -25,10 +25,16 @@ export default function Home(props) {
   return (
     <Container maxW='container.xl' py='20'>
       <Heading>Meine Lieblingscafes</Heading>
-      <Text>In diesen Cafes arbeite ich sehr gerne</Text>
-      <SimpleGrid columns={5} spacing={8}>
+      <SimpleGrid minChildWidth='400px' spacing={8} py={8}>
       {placesData.map((placesData) => (
-        <CoffeeCard key={placesData.id} name={placesData.fields.name} hood={placesData.fields.hood} notes={placesData.fields.notes} src={placesData.fields.image[0].url} />
+        <CoffeeCard 
+          key={placesData.id} 
+          name={placesData.fields.name} 
+          hood={placesData.fields.hood} 
+          note={placesData.fields.note}
+          noteHeadline={placesData.fields.noteHeadline}
+          src={placesData.fields.image[0].url}
+        />
       ))}
       </SimpleGrid>
     </Container>

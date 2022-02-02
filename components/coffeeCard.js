@@ -1,10 +1,11 @@
-import { Box, useColorModeValue, Image, Text, Heading, Stack } from '@chakra-ui/react';
+import { Box, useColorModeValue, Image, Text, Heading, Stack, AspectRatio } from '@chakra-ui/react';
 import React from "react";
 
-const CoffeeCard = ({ name, hood, notes, src }) => {
+const CoffeeCard = ({ name, hood, note, noteHeadline, src }) => {
     console.log(src)
     return (
-        <Box maxW={'445px'}
+        <Box 
+            maxW={'400px'}
             w={'full'}
             bg={useColorModeValue('white', 'gray.900')}
             boxShadow={'2xl'}
@@ -12,16 +13,17 @@ const CoffeeCard = ({ name, hood, notes, src }) => {
             p={6}
             overflow={'hidden'}>
             <Box
-                h={'210px'}
                 bg={'gray.100'}
                 mt={-6}
                 mx={-6}
                 mb={6}
                 pos={'relative'}>
-            <Image
-                src={src}
-                layout={'fill'}
-            />
+            <AspectRatio>
+                <Image
+                    src={src}
+                    layout={'fill'}
+                />
+            </AspectRatio>
             </Box>
             <Stack>
             <Text
@@ -36,9 +38,9 @@ const CoffeeCard = ({ name, hood, notes, src }) => {
                 color={useColorModeValue('gray.700', 'white')}
                 fontSize={'2xl'}
                 fontFamily={'body'}>
-                {name}
+                {name} - {noteHeadline}
             </Heading>
-            {/* {notes && <Text color={'gray.500'}> {notes} </Text> } */}
+            <Text color={'gray.500'}> {note} </Text>
         </Stack>
         </Box>
     )
