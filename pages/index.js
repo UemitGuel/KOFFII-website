@@ -1,6 +1,6 @@
 import { getCoffeePlaces, getPlacesInSpotlight } from '../lib/airtable';
 import { SimpleGrid, Container, Heading, Text } from '@chakra-ui/react';
-import CoffeeCard from "../components/coffeeCard";
+import InSpotlightCard from "../components/coffeeCard";
 import React from "react";
 
 
@@ -19,7 +19,7 @@ export async function getStaticProps() {
 export default function Home(props) {
   const placesData = props.allPlacesInSpotlight
   placesData.map((placesData) => (
-    console.log(placesData.fields.image[0].url)
+    console.log(placesData.fields.features)
   ))
 
   return (
@@ -27,13 +27,14 @@ export default function Home(props) {
       <Heading>Meine Lieblingscafes</Heading>
       <SimpleGrid minChildWidth='400px' spacing={8} py={8}>
       {placesData.map((placesData) => (
-        <CoffeeCard 
+        <InSpotlightCard 
           key={placesData.id} 
           name={placesData.fields.name} 
           hood={placesData.fields.hood} 
           note={placesData.fields.note}
           noteHeadline={placesData.fields.noteHeadline}
           src={placesData.fields.image[0].url}
+          features={placesData.fields.features}
         />
       ))}
       </SimpleGrid>
