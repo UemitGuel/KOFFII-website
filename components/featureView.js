@@ -10,7 +10,7 @@ const FeatureView = ({ features }) => {
     return (
         <Flex>
             <Spacer />
-            {!features.includes('hasWifi') ? 
+            {features.includes('hasWifi') ? 
                 <Center><MdWifi size={sizehasFeature}/></Center> :
                 <Center><MdWifiOff opacity={opacity} size={sizeDontHasFeature}/></Center>
             }
