@@ -1,8 +1,8 @@
-import { Box, useColorModeValue, Text, Heading, Stack, Flex, Spacer } from '@chakra-ui/react';
+import { Box, useColorModeValue, Image, Text, Heading, Stack, AspectRatio, Flex, Spacer } from '@chakra-ui/react';
 import React from "react";
 import FeatureView from './featureView';
 
-const CoffeeCard = ({ name, hood, features }) => {
+const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
     return (
         <Box 
             maxW={'450px'}
@@ -11,6 +11,19 @@ const CoffeeCard = ({ name, hood, features }) => {
             rounded={'md'}
             p={6}
             overflow={'hidden'}>
+            <Box
+                bg={'gray.100'}
+                mt={-6}
+                mx={-6}
+                mb={6}
+                pos={'relative'}>
+            <AspectRatio>
+                <Image
+                    src={src}
+                    layout={'fill'}
+                />
+            </AspectRatio>
+            </Box>
                 <Stack>
                     <Text
                         color={'green.500'}
@@ -24,8 +37,9 @@ const CoffeeCard = ({ name, hood, features }) => {
                         color={useColorModeValue('gray.700', 'white')}
                         fontSize={'2xl'}
                         fontFamily={'body'}>
-                        {name}
+                        {name} - {noteHeadline}
                     </Heading>
+                    <Text color={'gray.500'} noOfLines={5}> {note} </Text>
                     <Spacer />
                     <FeatureView features={features}/>
             </Stack>
@@ -33,4 +47,4 @@ const CoffeeCard = ({ name, hood, features }) => {
     )
 };
 
-export default CoffeeCard;
+export default InSpotlightCard;
