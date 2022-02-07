@@ -8,7 +8,12 @@ const FeatureView = ({ features }) => {
     const sizeDontHasFeature = 20
 
     return (
-        <Flex>
+        <Flex
+            color={'green.700'}
+            bg={'green.50'}
+            rounded={'md'}
+            p={2}
+            >
             <Spacer />
             {features.includes('hasWifi') ? 
                 <Center><MdWifi size={sizehasFeature}/></Center> :

@@ -29,7 +29,7 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
             </Box>
                 <Stack>
                     <Text
-                        color={'green.500'}
+                        color={'green.700'}
                         textTransform={'uppercase'}
                         fontWeight={800}
                         fontSize={'sm'}

@@ -16,7 +16,7 @@ const CoffeeCard = ({ name, hood, features }) => {
             overflow={'hidden'}>
                 <Stack>
                     <Text
-                        color={'green.500'}
+                        color={'green.700'}
                         textTransform={'uppercase'}
                         fontWeight={800}
                         fontSize={'sm'}

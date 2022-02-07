@@ -9,6 +9,7 @@ import {
     StackDivider,
     Icon,
     AspectRatio,
+    Center
   } from '@chakra-ui/react';
 import {
     IoAnalyticsSharp,
@@ -26,6 +27,7 @@ const DetailView = ({place}) => {
 
     return (
           <Container maxW={'5xl'} py={12}>
+            <Center>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <Stack spacing={4}>
                 <FeatureView 
@@ -58,7 +60,10 @@ const DetailView = ({place}) => {
             </Flex>
         </AspectRatio>
         }
+        <iframe width='800' height="450" loading="lazy" allowfullscreen
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhfUYN4Ilv0cR60A6b_ObNoA&key=AIzaSyBDysU3cwdzGq9nBFYacb_6f9MhlvuLlJk"></iframe>
       </SimpleGrid>
+      </Center>
     </Container>
   );
 };
