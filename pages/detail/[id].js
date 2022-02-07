@@ -61,7 +61,7 @@ const DetailView = ({place}) => {
         }
         <Center>
         <iframe width='800' height="450" loading="lazy" allowfullscreen
-        src={"https://www.google.com/maps/embed/v1/place?q=place_id:" + (fields.placeID) + "&key=AIzaSyBDysU3cwdzGq9nBFYacb_6f9MhlvuLlJk"}>
+        src={"https://www.google.com/maps/embed/v1/place?q=place_id:" + (fields.placeID) + "&key=" + (process.env.GOOGLE_MAPS_API)}>
             
         </iframe>
         </Center>
