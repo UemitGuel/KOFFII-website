@@ -5,6 +5,9 @@ import FeatureView from './featureView';
 const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
     return (
         <Box 
+            transition="all 0.3s"
+            transition-timing-function="spring(1 100 10 10)"
+            _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
             maxW={'450px'}
             bg={useColorModeValue('white', 'gray.900')}
             boxShadow={'2xl'}

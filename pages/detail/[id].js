@@ -1,12 +1,13 @@
 import { Text } from "@chakra-ui/react";
 import { getCoffeePlaceIDs, getPlaceByID } from "../../lib/airtable";
 import React from "react";
+import { chakra, useColorModeValue } from "@chakra-ui/react";
 
 const DetailView = ({place}) => {
     const fields = place.place[0].fields
 
     return (
-        <Text>{fields.name}}</Text>
+        <Text>{fields.name}</Text>
     )
 };
 export async function getStaticPaths() {
