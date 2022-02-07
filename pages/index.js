@@ -1,9 +1,11 @@
 import { getCoffeePlaces, getPlacesInSpotlight } from '../lib/airtable';
-import { SimpleGrid, Container, Heading, Text, Divider } from '@chakra-ui/react';
+import { SimpleGrid, Container, Heading, Text, Divider,Flex, IconButton } from '@chakra-ui/react';
 import InSpotlightCard from "../components/inSpotlightCard";
 import React from "react";
 import CoffeeCard from '../components/coffeeCard';
 import Link from "../components/link";
+import Sidebar from '../components/Sidebar';
+import { FiMenu } from 'react-icons/fi'
 
 export async function getStaticProps() {
   const coffeeData = await getCoffeePlaces()
@@ -22,6 +24,8 @@ export default function Home(props) {
   const coffeeData = props.coffeeData
 
   return (
+    <Flex w="100%">
+      <Sidebar />
     <Container maxW='container.xl' py='20'>
       <Heading>Meine Lieblingscafes</Heading>
       <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
@@ -54,6 +58,7 @@ export default function Home(props) {
       ))}
       </SimpleGrid>
     </Container>
+    </Flex>
     
   )
 }
