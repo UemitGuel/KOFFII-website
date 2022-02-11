@@ -22,7 +22,7 @@ import { chakra, useColorModeValue } from "@chakra-ui/react";
 import Head from 'next/head';
 import FeatureView from '../../components/featureView';
 
-const DetailView = ({place}) => {
+const DetailView = ({place, apiKey}) => {
     const fields = place.place[0].fields
 
     return (
@@ -61,7 +61,7 @@ const DetailView = ({place}) => {
         }
         <Center>
         <iframe width='800' height="450" loading="lazy" allowfullscreen
-        src={"https://www.google.com/maps/embed/v1/place?q=place_id:" + (fields.placeID) + "&key=" + (process.env.GOOGLE_MAPS_API)}>
+        src={"https://www.google.com/maps/embed/v1/place?q=place_id:" + (fields.placeID) + "&key=" + (apiKey)}>
             
         </iframe>
         </Center>
@@ -81,10 +81,12 @@ export async function getStaticPaths() {
   export async function getStaticProps({ params }) {
     // Add the "await" keyword like this:
     const place = await getPlaceByID(params.id)
+    const apiKey = process.env.GOOGLE_MAPS_API
     // ...
     return {
         props: {
-          place: place
+          place: place,
+          apiKey: apiKey
         }
       }
   }
