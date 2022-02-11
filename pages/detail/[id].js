@@ -59,13 +59,12 @@ const DetailView = ({place, apiKey}) => {
             </Flex>
         </AspectRatio>
         }
-        <Center>
+        </SimpleGrid>
+        <Center pt={12}>
         <iframe width='800' height="450" loading="lazy" allowfullscreen
         src={"https://www.google.com/maps/embed/v1/place?q=place_id:" + (fields.placeID) + "&key=" + (apiKey)}>
-            
         </iframe>
         </Center>
-      </SimpleGrid>
     </Container>
   );
 };
