@@ -15,20 +15,8 @@ import {
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from '../components/NavItem'
 
-export default function Sidebar() {
+export default function Sidebar({activeTabs, toggleTab}) {
     const [navSize, changeNavSize] = useState("large")
-    const [activeTabs, setActiveTabs] = useState({
-        firstTab: true,
-        secondTab: false
-    })
-
-    function toggleTab() {
-        console.log(activeTabs)
-        setActiveTabs((previousTabs) => ({
-            firstTab: !previousTabs.firstTab,
-            secondTab: !previousTabs.secondTab
-        }))
-    }
 
     return (
         <Flex
