@@ -22,22 +22,12 @@ export default function Sidebar() {
         secondTab: false
     })
 
-    //Todo, implement in one function
-    function activateFirstTab() {
+    function toggleTab() {
         console.log(activeTabs)
-        setActiveTabs({
-            firstTab: true,
-            secondTab: false
-        })
-    }
-
-    function activateSecondTab() {
-        console.log(activeTabs)
-
-        setActiveTabs({
-            firstTab: false,
-            secondTab: true
-        })
+        setActiveTabs((previousTabs) => ({
+            firstTab: !previousTabs.firstTab,
+            secondTab: !previousTabs.secondTab
+        }))
     }
 
     return (
@@ -73,14 +63,14 @@ export default function Sidebar() {
                 />
                 <NavItem 
                     key='firstTab' 
-                    onClick={activateFirstTab} 
+                    onClick={toggleTab} 
                     navSize={navSize} 
                     icon={MdCoffee} 
                     title="Cafés" 
                     active={activeTabs.firstTab} />
                 <NavItem 
                     key='secondTab' 
-                    onClick={activateSecondTab} 
+                    onClick={toggleTab} 
                     navSize={navSize} 
                     icon={MdInfo} 
                     title="Gut zu wissen"
