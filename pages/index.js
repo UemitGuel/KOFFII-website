@@ -6,6 +6,7 @@ import CoffeeCard from '../components/coffeeCard';
 import Link from "../components/link";
 import Sidebar from '../components/Sidebar';
 import { FiMenu } from 'react-icons/fi'
+import KnowledgeCard from '../components/knowledgeCard';
 
 export async function getStaticProps() {
   const coffeeData = await getCoffeePlaces()
@@ -39,6 +40,7 @@ export default function Home(props) {
   const coffeeData = props.coffeeData
   const knowledgeData = props.knowledgeData
   console.log(knowledgeData)
+  console.log(spotlightData)
 
   return (
     <Flex w="100%">
@@ -80,9 +82,23 @@ export default function Home(props) {
       {activeTabs.secondTab &&
         <Container maxW='container.xl' py='20'>
           <Heading>Information& Zubereitung</Heading>
+          <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
           {knowledgeData.map((knowledgeData) => (
-            <Text>{knowledgeData.fields.title}</Text>   
+            <Link href={`/knowledgeDetail/${knowledgeData.id}`} unstyled>
+             <KnowledgeCard 
+                key={knowledgeData.id}
+                title={knowledgeData.fields.title}
+                quan={knowledgeData.fields.quan}
+                time={knowledgeData.fields.time}
+                temp={knowledgeData.fields.temp}
+                src={knowledgeData.fields.image[0].url}
+                isEspresso={knowledgeData.fields.isEspresso}
+                isPreparation={knowledgeData.fields.isPreparation}
+                steps={knowledgeData.fields.steps}
+                />
+              </Link>
            ))}
+           </SimpleGrid>
         </Container>
       }
     </Flex>

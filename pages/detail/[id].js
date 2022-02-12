@@ -23,6 +23,7 @@ import Head from 'next/head';
 import FeatureView from '../../components/featureView';
 
 const DetailView = ({place, apiKey}) => {
+    console.log(place)
     const fields = place.place[0].fields
 
     return (
