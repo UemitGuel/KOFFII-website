@@ -30,15 +30,23 @@ const DetailView = ({place, apiKey}) => {
           <Container maxW={'5xl'} py={12}>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <Stack spacing={4}>
-                <FeatureView 
-                    features={fields.features} 
-                />
+                <Text
+                  color={'green.700'}
+                  textTransform={'uppercase'}
+                  fontWeight={800}
+                  fontSize={'sm'}
+                  letterSpacing={1.1}>
+                  {fields.hood}
+                </Text>
                 {fields.noteHeadline != null ? <Heading>{fields.name}</Heading> : <Heading>{fields.name} - {fields.noteHeadline}</Heading>}
                 {fields.noteHeadline && 
                     <Text color={'gray.500'} fontSize={'lg'}>
                         {fields.note}
                     </Text> 
                 }
+                <FeatureView 
+                    features={fields.features} 
+                />
                 <Stack
                   spacing={4}
                   divider={
