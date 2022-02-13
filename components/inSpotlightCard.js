@@ -28,6 +28,7 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
             </AspectRatio>
             </Box>
                 <Stack>
+                    <Stack spacing={1}>
                     <Text
                         color={'green.700'}
                         textTransform={'uppercase'}
@@ -42,6 +43,7 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
                         fontFamily={'body'}>
                         {name} - {noteHeadline}
                     </Heading>
+                    </Stack>
                     <Text color={'gray.500'} noOfLines={5}> {note} </Text>
                     <Spacer />
                     <FeatureView features={features}/>

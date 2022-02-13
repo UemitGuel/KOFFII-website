@@ -9,13 +9,14 @@ import {
     StackDivider,
     Icon,
     AspectRatio,
-    Center
+    Center,
+    Box,
+    Button,
+    Divider
   } from '@chakra-ui/react';
 import {
-    IoAnalyticsSharp,
-    IoLogoBitcoin,
-    IoSearchSharp,
-  } from 'react-icons/io5';
+    MdMap,
+  } from 'react-icons/md';
 import { ReactElement } from 'react';
 import { getCoffeePlaceIDs, getPlaceByID } from "../../lib/airtable";
 import { chakra, useColorModeValue } from "@chakra-ui/react";
@@ -23,14 +24,20 @@ import Head from 'next/head';
 import FeatureView from '../../components/featureView';
 
 const DetailView = ({place, apiKey}) => {
+
+
     console.log(place)
     const fields = place.place[0].fields
 
+    function openMaps() {
+      window.open(fields.url, "_blank")
+    }
+
     return (
-          <Container maxW={'5xl'} py={12}>
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-              <Stack spacing={4}>
-                <Text
+      <Container maxW={'container.md'} py={12}>
+        <Stack spacing={12}>
+          <Stack spacing={1}>
+            <Text
                   color={'green.700'}
                   textTransform={'uppercase'}
                   fontWeight={800}
@@ -39,26 +46,14 @@ const DetailView = ({place, apiKey}) => {
                   {fields.hood}
                 </Text>
                 {fields.noteHeadline != null ? <Heading>{fields.name}</Heading> : <Heading>{fields.name} - {fields.noteHeadline}</Heading>}
-                {fields.noteHeadline && 
-                    <Text color={'gray.500'} fontSize={'lg'}>
-                        {fields.note}
-                    </Text> 
-                }
-                <FeatureView 
-                    features={fields.features} 
-                />
-                <Stack
-                  spacing={4}
-                  divider={
-                    <StackDivider
-                      borderColor={useColorModeValue('gray.100', 'gray.700')}
-                    />
-                  }>
-          </Stack>
-        </Stack>
-        {fields.image[0].url &&
-        <AspectRatio>
-            <Flex>
+            {fields.image[0].url &&
+        <AspectRatio ratio={2 / 1}>
+            <Flex
+              bg={useColorModeValue('white', 'gray.900')}
+              boxShadow={'2xl'}
+              rounded={'md'}
+              overflow={'hidden'}
+            >
                 <Image
                     rounded={'md'}
                     alt={'feature image'}
@@ -68,12 +63,44 @@ const DetailView = ({place, apiKey}) => {
             </Flex>
         </AspectRatio>
         }
-        </SimpleGrid>
-        <Center pt={12}>
-        <iframe width='800' height="450" loading="lazy" allowfullscreen
+                              </Stack>
+
+                        <Stack>
+                <Heading size='md'>Feature</Heading>
+                <Divider background={'green.50'}/>
+                <FeatureView 
+                    features={fields.features} 
+                />
+                    </Stack>
+                {fields.noteHeadline && 
+                <Stack>
+                <Heading size='md'>Notizen</Heading>
+                <Divider background={'green.50'}/>
+                    <Text color={'gray.500'} fontSize={'lg'}>
+                        {fields.note}
+                    </Text> 
+                    </Stack>
+                }
+                <Stack>
+                <Heading size='md'>Karte</Heading>
+                <Divider background={'green.50'}/>
+                <Button w="100%" onClick={openMaps} leftIcon={<MdMap />} colorScheme='green' variant='solid'>
+          In Google Maps anzeigen
+        </Button>
+        <AspectRatio ratio={2 / 1}>
+            <Flex
+              bg={useColorModeValue('white', 'gray.900')}
+              boxShadow={'2xl'}
+              rounded={'md'}
+              overflow={'hidden'}
+            >
+       <iframe width='100%' height="450" loading="lazy" allowfullscreen
         src={"https://www.google.com/maps/embed/v1/place?q=place_id:" + (fields.placeID) + "&key=" + (apiKey)}>
         </iframe>
-        </Center>
+            </Flex>
+        </AspectRatio>
+                    </Stack>
+      </Stack>
     </Container>
   );
 };
