@@ -22,8 +22,6 @@ import { getCoffeePlaceIDs, getPlaceByID } from "../../lib/airtable";
 import { chakra, useColorModeValue } from "@chakra-ui/react";
 import Head from 'next/head';
 import FeatureView from '../../components/featureView';
-import DetailSidebar from '../../components/detailSideBar';
-import LegendSidebar from '../../components/legendSidebar';
 
 const DetailView = ({place, apiKey}) => {
 
@@ -43,11 +41,6 @@ const DetailView = ({place, apiKey}) => {
     }
 
     return (
-      <Flex w="100%">
-      <Stack p={1}>
-        <DetailSidebar navSize={navSize} toggleState={toggleState}/>
-        <LegendSidebar navSize={navSize}/>
-      </Stack>
       <Container maxW={'container.md'} py={12}>
         <Stack spacing={12}>
           <Stack spacing={1}>
@@ -116,7 +109,6 @@ const DetailView = ({place, apiKey}) => {
                     </Stack>
       </Stack>
     </Container>
-    </Flex>
   );
 };
 
