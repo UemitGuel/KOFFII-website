@@ -1,5 +1,5 @@
 import { getCoffeePlaces, getKnowledge, getPlacesInSpotlight } from '../lib/airtable';
-import { SimpleGrid, Container, Heading, Text, Divider,Flex, IconButton } from '@chakra-ui/react';
+import { SimpleGrid, Container, Heading, Text, Divider,Flex, IconButton,Stack } from '@chakra-ui/react';
 import InSpotlightCard from "../components/inSpotlightCard";
 import {React, useState} from "react";
 import CoffeeCard from '../components/coffeeCard';
@@ -7,6 +7,7 @@ import Link from "../components/link";
 import Sidebar from '../components/Sidebar';
 import { FiMenu } from 'react-icons/fi'
 import KnowledgeCard from '../components/knowledgeCard';
+import LegendSidebar from '../components/legendSidebar';
 
 export async function getStaticProps() {
   const coffeeData = await getCoffeePlaces()
@@ -27,9 +28,16 @@ export default function Home(props) {
     firstTab: true,
     secondTab: false
   })
+  const [navSize, changeNavSize] = useState("large")
+
+  function toggleState() {
+    if (navSize == "small")
+      changeNavSize("large")
+    else
+      changeNavSize("small")
+  }
 
   function toggleTab() {
-    console.log(activeTabs)
     setActiveTabs((previousTabs) => ({
         firstTab: !previousTabs.firstTab,
         secondTab: !previousTabs.secondTab
@@ -39,12 +47,13 @@ export default function Home(props) {
   const spotlightData = props.spotlightData
   const coffeeData = props.coffeeData
   const knowledgeData = props.knowledgeData
-  console.log(knowledgeData)
-  console.log(spotlightData)
 
   return (
     <Flex w="100%">
-      <Sidebar activeTabs={activeTabs} toggleTab={toggleTab}/>
+      <Stack p={1}>
+        <Sidebar activeTabs={activeTabs} toggleTab={toggleTab} navSize={navSize} toggleState={toggleState}/>
+        <LegendSidebar navSize={navSize} />
+      </Stack>
       {activeTabs.firstTab &&
         <Container maxW='container.xl' py='20'>
           <Heading>Meine Lieblingscafes</Heading>

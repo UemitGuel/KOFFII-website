@@ -22,7 +22,6 @@ import { chakra, useColorModeValue } from "@chakra-ui/react";
 import Head from 'next/head';
 
 const KnowledgeDetailView = ({knowledge}) => {
-    console.log(knowledge)
     const fields = knowledge.knowledge[0].fields
 
     return (

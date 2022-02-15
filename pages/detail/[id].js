@@ -17,16 +17,25 @@ import {
 import {
     MdMap,
   } from 'react-icons/md';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { getCoffeePlaceIDs, getPlaceByID } from "../../lib/airtable";
 import { chakra, useColorModeValue } from "@chakra-ui/react";
 import Head from 'next/head';
 import FeatureView from '../../components/featureView';
+import DetailSidebar from '../../components/detailSideBar';
+import LegendSidebar from '../../components/legendSidebar';
 
 const DetailView = ({place, apiKey}) => {
 
+  const [navSize, changeNavSize] = useState("large")
 
-    console.log(place)
+  function toggleState() {
+    if (navSize == "small")
+      changeNavSize("large")
+    else
+      changeNavSize("small")
+  }
+
     const fields = place.place[0].fields
 
     function openMaps() {
@@ -34,6 +43,11 @@ const DetailView = ({place, apiKey}) => {
     }
 
     return (
+      <Flex w="100%">
+      <Stack p={1}>
+        <DetailSidebar navSize={navSize} toggleState={toggleState}/>
+        <LegendSidebar navSize={navSize}/>
+      </Stack>
       <Container maxW={'container.md'} py={12}>
         <Stack spacing={12}>
           <Stack spacing={1}>
@@ -102,6 +116,7 @@ const DetailView = ({place, apiKey}) => {
                     </Stack>
       </Stack>
     </Container>
+    </Flex>
   );
 };
 

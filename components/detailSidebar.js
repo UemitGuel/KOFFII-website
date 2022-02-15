@@ -8,20 +8,21 @@ import {
     Heading
 } from '@chakra-ui/react'
 import {
-    MdCoffee,
-    MdInfo,
+    MdArrowBackIos,
     MdMenu
 } from 'react-icons/md'
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from '../components/NavItem'
+import { useRouter } from 'next/router'
 
-export default function Sidebar({activeTabs, toggleTab, navSize, toggleState}) {
+
+export default function DetailSidebar({navSize, toggleState}) {
+    const router = useRouter()
 
     return (
         <Flex
             pos="sticky"
             left="5"
-            marginTop="2.5vh"
             boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
             borderRadius={navSize == "small" ? "15px" : "30px"}
             w={navSize == "small" ? "75px" : "200px"}
@@ -43,21 +44,12 @@ export default function Sidebar({activeTabs, toggleTab, navSize, toggleState}) {
                     onClick={toggleState}
                 />
                 <NavItem 
-                    key='firstTab' 
-                    onClick={toggleTab} 
+                    key='back' 
+                    onClick={() => router.back()}
                     navSize={navSize} 
-                    icon={MdCoffee} 
-                    title="Cafés" 
-                    active={activeTabs.firstTab} />
-                <NavItem 
-                    key='secondTab' 
-                    onClick={toggleTab} 
-                    navSize={navSize} 
-                    icon={MdInfo} 
-                    title="Gut zu wissen"
-                    active={activeTabs.secondTab} 
-                    href={'/knowledge'}
-                    />
+                    icon={MdArrowBackIos} 
+                    title="Zurück" 
+                    active={false} />
             </Flex>
         </Flex>
     )
