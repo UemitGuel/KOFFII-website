@@ -22,6 +22,7 @@ import { getCoffeePlaceIDs, getPlaceByID } from "../../lib/airtable";
 import { chakra, useColorModeValue } from "@chakra-ui/react";
 import Head from 'next/head';
 import FeatureView from '../../components/featureView';
+import PageTransition from '../../components/pageTransition';
 
 const DetailView = ({place, apiKey}) => {
 
@@ -41,7 +42,8 @@ const DetailView = ({place, apiKey}) => {
     }
 
     return (
-      <Container maxW={'container.md'} py={12}>
+      <Container maxW={'container.md'}>
+        <PageTransition>
         <Stack spacing={12}>
           <Stack spacing={1}>
             <Text
@@ -53,6 +55,7 @@ const DetailView = ({place, apiKey}) => {
                   {fields.hood}
                 </Text>
                 {fields.noteHeadline != null ? <Heading>{fields.name}</Heading> : <Heading>{fields.name} - {fields.noteHeadline}</Heading>}
+                <Divider background={'green.50'}/>
             {fields.image[0].url &&
         <AspectRatio ratio={2 / 1}>
             <Flex
@@ -108,6 +111,7 @@ const DetailView = ({place, apiKey}) => {
         </AspectRatio>
                     </Stack>
       </Stack>
+      </PageTransition>
     </Container>
   );
 };

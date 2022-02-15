@@ -5,6 +5,7 @@ import {React, useState} from "react";
 import CoffeeCard from '../components/coffeeCard';
 import Link from "../components/link";
 import KnowledgeCard from '../components/knowledgeCard';
+import PageTransition from '../components/pageTransition';
 
 export async function getStaticProps() {
   const knowledgeData = await getKnowledge()
@@ -21,6 +22,7 @@ export default function Preparation(props) {
 
   return (
         <Container maxW='container.xl' py='20'>
+          <PageTransition>
           <Heading>Information& Zubereitung</Heading>
           <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
           {knowledgeData.map((knowledgeData) => (
@@ -39,6 +41,7 @@ export default function Preparation(props) {
               </Link>
            ))}
            </SimpleGrid>
+           </PageTransition>
         </Container>
   )
 }

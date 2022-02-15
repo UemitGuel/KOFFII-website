@@ -24,9 +24,12 @@ export default function Home(props) {
   const coffeeData = props.coffeeData
 
   return (
-        <Container maxW='container.md'>
+        <Container maxW='container.xl'>
           <PageTransition>
-          <Heading>Meine Lieblingscafes</Heading>
+          <Stack>
+          <Stack spacing={1}>
+          <Heading>Meine Lieblingscafés</Heading>
+          <Divider background={'green.50'}/>
           <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
           {spotlightData.map((spotlightData) => (
             <Link href={`/detail/${spotlightData.id}`} unstyled>
@@ -42,20 +45,24 @@ export default function Home(props) {
             </Link>
             ))}
           </SimpleGrid>
-          <Divider />
-          <Heading>Weitere Cafes</Heading>
-          <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
-          {coffeeData.map((coffeeData) => (
-            <Link href={`/detail/${spotlightData.id}`} unstyled>
-              <CoffeeCard 
-                key={coffeeData.id} 
-                name={coffeeData.fields.name} 
-                hood={coffeeData.fields.hood} 
-                features={coffeeData.fields.features}
-              />
-            </Link>
-          ))}
-          </SimpleGrid>
+          </Stack>
+          <Stack spacing={1}>
+            <Heading>Weitere Cafés</Heading>
+            <Divider background={'green.50'}/>
+            <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
+            {coffeeData.map((coffeeData) => (
+              <Link href={`/detail/${spotlightData.id}`} unstyled>
+               <CoffeeCard 
+                  key={coffeeData.id} 
+                  name={coffeeData.fields.name} 
+                  hood={coffeeData.fields.hood} 
+                  features={coffeeData.fields.features}
+                />
+              </Link>
+            ))}
+            </SimpleGrid>
+          </Stack>
+          </Stack>
           </PageTransition>
         </Container>
   )
