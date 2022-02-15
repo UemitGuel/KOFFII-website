@@ -21,9 +21,11 @@ export default function Preparation(props) {
   const knowledgeData = props.knowledgeData
 
   return (
-        <Container maxW='container.xl' py='20'>
+        <Container maxW='container.xl'>
           <PageTransition>
-          <Heading>Information& Zubereitung</Heading>
+          <Stack spacing={1}>
+          <Heading>Zubereitung& mehr</Heading>
+          <Divider background={'green.50'}/>
           <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
           {knowledgeData.map((knowledgeData) => (
             <Link href={`/knowledgeDetail/${knowledgeData.id}`} unstyled>
@@ -41,6 +43,7 @@ export default function Preparation(props) {
               </Link>
            ))}
            </SimpleGrid>
+           </Stack>
            </PageTransition>
         </Container>
   )
