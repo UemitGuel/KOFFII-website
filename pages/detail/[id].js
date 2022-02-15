@@ -1,35 +1,21 @@
 import {
   Container,
-  SimpleGrid,
   Image,
   Flex,
   Heading,
   Text,
   Stack,
-  StackDivider,
-  Icon,
   AspectRatio,
-  Center,
-  Box,
   Button,
   Divider,
 } from "@chakra-ui/react";
 import { MdMap } from "react-icons/md";
-import { ReactElement, useState } from "react";
 import { getCoffeePlaceIDs, getPlaceByID } from "../../lib/airtable";
 import { chakra, useColorModeValue } from "@chakra-ui/react";
-import Head from "next/head";
 import FeatureView from "../../components/featureView";
 import PageTransition from "../../components/pageTransition";
 
 const DetailView = ({ place, apiKey }) => {
-  const [navSize, changeNavSize] = useState("large");
-
-  function toggleState() {
-    if (navSize == "small") changeNavSize("large");
-    else changeNavSize("small");
-  }
-
   const fields = place.place[0].fields;
 
   function openMaps() {
@@ -39,49 +25,49 @@ const DetailView = ({ place, apiKey }) => {
   return (
     <Container maxW={"container.md"}>
       <PageTransition>
-        <Stack spacing={12}>
-          <Stack spacing={1}>
-            <Text
-              color={"green.700"}
-              textTransform={"uppercase"}
-              fontWeight={800}
-              fontSize={"sm"}
-              letterSpacing={1.1}
-            >
-              {fields.hood}
-            </Text>
-            {fields.noteHeadline != null ? (
-              <Heading>{fields.name}</Heading>
-            ) : (
-              <Heading>
-                {fields.name} - {fields.noteHeadline}
-              </Heading>
-            )}
-            <Divider background={"green.50"} />
-            {fields.image[0].url && (
-              <AspectRatio ratio={2 / 1}>
-                <Flex
-                  bg={useColorModeValue("white", "gray.900")}
-                  boxShadow={"2xl"}
+        <Stack spacing={10}>
+          <Stack>
+          <Text
+            color={"green.700"}
+            textTransform={"uppercase"}
+            fontWeight={800}
+            fontSize={"sm"}
+            letterSpacing={1.1}
+          >
+            {fields.hood}
+          </Text>
+          {fields.noteHeadline != null ? (
+            <Heading>{fields.name}</Heading>
+          ) : (
+            <Heading>
+              {fields.name} - {fields.noteHeadline}
+            </Heading>
+          )}
+          <Divider background={"green.50"} />
+          {fields.image[0].url && (
+            <AspectRatio ratio={2 / 1}>
+              <Flex
+                bg={useColorModeValue("white", "gray.900")}
+                boxShadow={"2xl"}
+                rounded={"md"}
+                overflow={"hidden"}
+              >
+                <Image
                   rounded={"md"}
-                  overflow={"hidden"}
-                >
-                  <Image
-                    rounded={"md"}
-                    alt={"feature image"}
-                    src={fields.image[0].url}
-                    objectFit={"cover"}
-                  />
-                </Flex>
-              </AspectRatio>
-            )}
-          </Stack>
-
+                  alt={"feature image"}
+                  src={fields.image[0].url}
+                  objectFit={"cover"}
+                />
+              </Flex>
+            </AspectRatio>
+          )}
+                    </Stack>
           <Stack>
             <Heading size="md">Feature</Heading>
             <Divider background={"green.50"} />
             <FeatureView features={fields.features} />
-          </Stack>
+            </Stack>
+
           {fields.noteHeadline && (
             <Stack>
               <Heading size="md">Notizen</Heading>

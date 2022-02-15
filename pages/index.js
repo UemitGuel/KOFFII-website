@@ -13,7 +13,6 @@ import InSpotlightCard from "../components/inSpotlightCard";
 import { React, useState } from "react";
 import CoffeeCard from "../components/coffeeCard";
 import Link from "../components/link";
-import KnowledgeCard from "../components/knowledgeCard";
 import PageTransition from "../components/pageTransition";
 
 export async function getStaticProps() {
