@@ -1,69 +1,77 @@
-import { getCoffeePlaces, getPlacesInSpotlight } from '../lib/airtable';
-import { SimpleGrid, Container, Heading, Text, Divider,Flex, IconButton,Stack } from '@chakra-ui/react';
+import { getCoffeePlaces, getPlacesInSpotlight } from "../lib/airtable";
+import {
+  SimpleGrid,
+  Container,
+  Heading,
+  Text,
+  Divider,
+  Flex,
+  IconButton,
+  Stack,
+} from "@chakra-ui/react";
 import InSpotlightCard from "../components/inSpotlightCard";
-import {React, useState} from "react";
-import CoffeeCard from '../components/coffeeCard';
+import { React, useState } from "react";
+import CoffeeCard from "../components/coffeeCard";
 import Link from "../components/link";
-import KnowledgeCard from '../components/knowledgeCard';
-import PageTransition from '../components/pageTransition';
+import KnowledgeCard from "../components/knowledgeCard";
+import PageTransition from "../components/pageTransition";
 
 export async function getStaticProps() {
-  const coffeeData = await getCoffeePlaces()
-  const spotlightData = await getPlacesInSpotlight()
+  const coffeeData = await getCoffeePlaces();
+  const spotlightData = await getPlacesInSpotlight();
   return {
     props: {
       coffeeData: coffeeData,
       spotlightData: spotlightData,
-    }
-  }
+    },
+  };
 }
 
 export default function Home(props) {
-
-  const spotlightData = props.spotlightData
-  const coffeeData = props.coffeeData
+  const spotlightData = props.spotlightData;
+  const coffeeData = props.coffeeData;
 
   return (
-        <Container maxW='container.xl'>
-          <PageTransition>
-          <Stack>
+    <Container maxW="container.xl">
+      <PageTransition>
+        <Stack>
           <Stack spacing={1}>
-          <Heading>Meine Lieblingscafés</Heading>
-          <Divider background={'green.50'}/>
-          <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
-          {spotlightData.map((spotlightData) => (
-            <Link href={`/detail/${spotlightData.id}`} unstyled>
-                <InSpotlightCard 
-                key={spotlightData.id} 
-                name={spotlightData.fields.name} 
-                hood={spotlightData.fields.hood} 
-                note={spotlightData.fields.note}
-                noteHeadline={spotlightData.fields.noteHeadline}
-                src={spotlightData.fields.image[0].url}
-                features={spotlightData.fields.features}
-                /> 
-            </Link>
-            ))}
-          </SimpleGrid>
+            <Heading>Meine Lieblingscafés</Heading>
+            <Divider background={"green.50"} />
+            <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
+              {spotlightData.map((spotlightData) => (
+                <Link href={`/detail/${spotlightData.id}`} unstyled>
+                  <InSpotlightCard
+                    key={spotlightData.id}
+                    name={spotlightData.fields.name}
+                    hood={spotlightData.fields.hood}
+                    note={spotlightData.fields.note}
+                    noteHeadline={spotlightData.fields.noteHeadline}
+                    src={spotlightData.fields.image[0].url}
+                    features={spotlightData.fields.features}
+                  />
+                </Link>
+              ))}
+            </SimpleGrid>
           </Stack>
           <Stack spacing={1}>
             <Heading>Weitere Cafés</Heading>
-            <Divider background={'green.50'}/>
-            <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
-            {coffeeData.map((coffeeData) => (
-              <Link href={`/detail/${spotlightData.id}`} unstyled>
-               <CoffeeCard 
-                  key={coffeeData.id} 
-                  name={coffeeData.fields.name} 
-                  hood={coffeeData.fields.hood} 
-                  features={coffeeData.fields.features}
-                />
-              </Link>
-            ))}
+            <Divider background={"green.50"} />
+            <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
+              {coffeeData.map((coffeeData) => (
+                <Link href={`/detail/${spotlightData.id}`} unstyled>
+                  <CoffeeCard
+                    key={coffeeData.id}
+                    name={coffeeData.fields.name}
+                    hood={coffeeData.fields.hood}
+                    features={coffeeData.fields.features}
+                  />
+                </Link>
+              ))}
             </SimpleGrid>
           </Stack>
-          </Stack>
-          </PageTransition>
-        </Container>
-  )
+        </Stack>
+      </PageTransition>
+    </Container>
+  );
 }

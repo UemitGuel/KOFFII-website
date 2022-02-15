@@ -1,50 +1,58 @@
-import { getKnowledge } from '../lib/airtable';
-import { SimpleGrid, Container, Heading, Text, Divider,Flex, IconButton,Stack } from '@chakra-ui/react';
+import { getKnowledge } from "../lib/airtable";
+import {
+  SimpleGrid,
+  Container,
+  Heading,
+  Text,
+  Divider,
+  Flex,
+  IconButton,
+  Stack,
+} from "@chakra-ui/react";
 import InSpotlightCard from "../components/inSpotlightCard";
-import {React, useState} from "react";
-import CoffeeCard from '../components/coffeeCard';
+import { React, useState } from "react";
+import CoffeeCard from "../components/coffeeCard";
 import Link from "../components/link";
-import KnowledgeCard from '../components/knowledgeCard';
-import PageTransition from '../components/pageTransition';
+import KnowledgeCard from "../components/knowledgeCard";
+import PageTransition from "../components/pageTransition";
 
 export async function getStaticProps() {
-  const knowledgeData = await getKnowledge()
+  const knowledgeData = await getKnowledge();
   return {
     props: {
-      knowledgeData: knowledgeData
-    }
-  }
+      knowledgeData: knowledgeData,
+    },
+  };
 }
 
 export default function Preparation(props) {
-
-  const knowledgeData = props.knowledgeData
+  const knowledgeData = props.knowledgeData;
 
   return (
-        <Container maxW='container.xl'>
-          <PageTransition>
-          <Stack spacing={1}>
+    <Container maxW="container.xl">
+      <PageTransition>
+        <Stack spacing={1}>
           <Heading>Zubereitung& mehr</Heading>
-          <Divider background={'green.50'}/>
-          <SimpleGrid minChildWidth='250px' spacing={8} py={8}>
-          {knowledgeData.map((knowledgeData) => (
-            <Link href={`/knowledgeDetail/${knowledgeData.id}`} unstyled>
-             <KnowledgeCard 
-                key={knowledgeData.id}
-                title={knowledgeData.fields.title}
-                quan={knowledgeData.fields.quan}
-                time={knowledgeData.fields.time}
-                temp={knowledgeData.fields.temp}
-                src={knowledgeData.fields.image[0].url}
-                isEspresso={knowledgeData.fields.isEspresso}
-                isPreparation={knowledgeData.fields.isPreparation}
-                steps={knowledgeData.fields.steps}
+          <Divider background={"green.50"} />
+          <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
+            {knowledgeData.map((knowledgeData) => (
+              <Link href={`/knowledgeDetail/${knowledgeData.id}`} unstyled>
+                <KnowledgeCard
+                  key={knowledgeData.id}
+                  title={knowledgeData.fields.title}
+                  quan={knowledgeData.fields.quan}
+                  time={knowledgeData.fields.time}
+                  temp={knowledgeData.fields.temp}
+                  src={knowledgeData.fields.image[0].url}
+                  isEspresso={knowledgeData.fields.isEspresso}
+                  isPreparation={knowledgeData.fields.isPreparation}
+                  steps={knowledgeData.fields.steps}
                 />
               </Link>
-           ))}
-           </SimpleGrid>
-           </Stack>
-           </PageTransition>
-        </Container>
-  )
+            ))}
+          </SimpleGrid>
+        </Stack>
+      </PageTransition>
+    </Container>
+  );
 }

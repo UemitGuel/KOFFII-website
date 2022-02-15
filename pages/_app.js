@@ -1,6 +1,6 @@
-import { ChakraProvider, Box } from '@chakra-ui/react'
-import MobileNavigation from '../components/mobileNavigation'
-import Header from '../components/header'
+import { ChakraProvider, Box } from "@chakra-ui/react";
+import MobileNavigation from "../components/mobileNavigation";
+import Header from "../components/header";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
       </Box>
       <MobileNavigation />
     </ChakraProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
