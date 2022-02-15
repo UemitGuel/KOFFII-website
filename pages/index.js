@@ -58,7 +58,7 @@ export default function Home(props) {
             <Divider background={"green.50"} />
             <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
               {coffeeData.map((coffeeData) => (
-                <Link href={`/detail/${spotlightData.id}`} unstyled>
+                <Link href={`/detail/${coffeeData.id}`} unstyled>
                   <CoffeeCard
                     key={coffeeData.id}
                     name={coffeeData.fields.name}

@@ -17,6 +17,9 @@ import PageTransition from "../../components/pageTransition";
 
 const DetailView = ({ place, apiKey }) => {
   const fields = place.place[0].fields;
+  const hasImage = fields.image != null
+  console.log(hasImage)
+
 
   function openMaps() {
     window.open(fields.url, "_blank");
@@ -44,7 +47,6 @@ const DetailView = ({ place, apiKey }) => {
             </Heading>
           )}
           <Divider background={"green.50"} />
-          {fields.image[0].url && (
             <AspectRatio ratio={2 / 1}>
               <Flex
                 bg={useColorModeValue("white", "gray.900")}
@@ -55,12 +57,12 @@ const DetailView = ({ place, apiKey }) => {
                 <Image
                   rounded={"md"}
                   alt={"feature image"}
-                  src={fields.image[0].url}
+                  src={hasImage ? fields.image[0].url : '/genericCafe.jpg'}
                   objectFit={"cover"}
                 />
               </Flex>
             </AspectRatio>
-          )}
+            {!hasImage && <Text size="sm"> *Zurzeit noch ein Platzhalter Foto </Text>}
                     </Stack>
           <Stack>
             <Heading size="md">Feature</Heading>
@@ -126,10 +128,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // Add the "await" keyword like this:
   const place = await getPlaceByID(params.id);
   const apiKey = process.env.GOOGLE_MAPS_API;
-  // ...
   return {
     props: {
       place: place,
