@@ -1,7 +1,7 @@
 import { Box, useColorModeValue, Image, Text, Heading, Stack, AspectRatio, Flex, Spacer } from '@chakra-ui/react';
 import React from "react";
 
-const KnowledgeCard = ({ title, quan, temp, time, src, isEspresso, isPreparation, steps }) => {
+const PreparationCard = ({ title, quan, temp, time, src, isEspresso, isPreparation, steps }) => {
     return (
         <Box 
             transition="all 0.3s"
@@ -79,4 +79,4 @@ const KnowledgeCard = ({ title, quan, temp, time, src, isEspresso, isPreparation
     )
 };
 
-export default KnowledgeCard;
+export default PreparationCard;

@@ -1,4 +1,4 @@
-import { getKnowledge } from "../lib/airtable";
+import { getPreparation } from "../lib/airtable";
 import {
   SimpleGrid,
   Container,
@@ -13,20 +13,20 @@ import InSpotlightCard from "../components/inSpotlightCard";
 import { React, useState } from "react";
 import CoffeeCard from "../components/coffeeCard";
 import Link from "../components/link";
-import KnowledgeCard from "../components/knowledgeCard";
+import PreparationCard from "../components/preparationCard";
 import PageTransition from "../components/pageTransition";
 
 export async function getStaticProps() {
-  const knowledgeData = await getKnowledge();
+  const preparationData = await getPreparation();
   return {
     props: {
-      knowledgeData: knowledgeData,
+      preparationData: preparationData,
     },
   };
 }
 
 export default function Preparation(props) {
-  const knowledgeData = props.knowledgeData;
+  const preparationData = props.preparationData;
 
   return (
     <Container maxW="container.xl">
@@ -35,18 +35,18 @@ export default function Preparation(props) {
           <Heading>Zubereitung& mehr</Heading>
           <Divider background={"green.50"} />
           <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
-            {knowledgeData.map((knowledgeData) => (
-              <Link href={`/knowledgeDetail/${knowledgeData.id}`} unstyled>
-                <KnowledgeCard
-                  key={knowledgeData.id}
-                  title={knowledgeData.fields.title}
-                  quan={knowledgeData.fields.quan}
-                  time={knowledgeData.fields.time}
-                  temp={knowledgeData.fields.temp}
-                  src={knowledgeData.fields.image[0].url}
-                  isEspresso={knowledgeData.fields.isEspresso}
-                  isPreparation={knowledgeData.fields.isPreparation}
-                  steps={knowledgeData.fields.steps}
+            {preparationData.map((preparationData) => (
+              <Link href={`/preparationDetail/${preparationData.id}`} unstyled>
+                <PreparationCard
+                  key={preparationData.id}
+                  title={preparationData.fields.title}
+                  quan={preparationData.fields.quan}
+                  time={preparationData.fields.time}
+                  temp={preparationData.fields.temp}
+                  src={preparationData.fields.image[0].url}
+                  isEspresso={preparationData.fields.isEspresso}
+                  isPreparation={preparationData.fields.isPreparation}
+                  steps={preparationData.fields.steps}
                 />
               </Link>
             ))}
