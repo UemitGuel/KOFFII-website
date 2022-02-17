@@ -8,6 +8,7 @@ import {
   AspectRatio,
   Button,
   Divider,
+  Spacer
 } from "@chakra-ui/react";
 import { MdMap } from "react-icons/md";
 import { getPreparationByID, getPreparationIDs } from "../../lib/airtable";
@@ -17,31 +18,58 @@ import PageTransition from "../../components/pageTransition";
 
 const PreparationDetailView = ({ preparation }) => {
   const fields = preparation.preparation[0].fields;
-  const hasImage = fields.image != null
-  console.log(hasImage)
+  console.log(preparation.preparation[0].fields)
 
   return (
     <Container maxW={"container.md"}>
       <PageTransition>
         <Stack spacing={10}>
           <Stack>
-          <Text
-            color={"green.700"}
-            textTransform={"uppercase"}
-            fontWeight={800}
-            fontSize={"sm"}
-            letterSpacing={1.1}
-          >
-            {fields.hood}
-          </Text>
-          {fields.noteHeadline != null ? (
-            <Heading>{fields.name}</Heading>
-          ) : (
-            <Heading>
-              {fields.name} - {fields.noteHeadline}
-            </Heading>
-          )}
-          <Divider background={"green.50"} />
+            {fields.isPreparation ? (
+              <Flex>
+                <Text
+                  color={"green.700"}
+                  textTransform={"uppercase"}
+                  fontWeight={800}
+                  fontSize={"sm"}
+                  letterSpacing={1.1}
+                >
+                  {fields.quan}
+                </Text>
+                <Spacer />
+                <Text
+                  color={"green.700"}
+                  textTransform={"uppercase"}
+                  fontWeight={800}
+                  fontSize={"sm"}
+                  letterSpacing={1.1}
+                >
+                  Zeit:{fields.time}
+                </Text>
+                <Spacer />
+                <Text
+                  color={"green.700"}
+                  textTransform={"uppercase"}
+                  fontWeight={800}
+                  fontSize={"sm"}
+                  letterSpacing={1.1}
+                >
+                  Temp:{fields.temp}
+                </Text>
+              </Flex>
+            ) : (
+              <Text
+                color={"green.700"}
+                textTransform={"uppercase"}
+                fontWeight={800}
+                fontSize={"sm"}
+                letterSpacing={1.1}
+              >
+                Thema
+              </Text>
+            )}
+              <Heading>{fields.title}</Heading>
+            <Divider background={"green.50"} />
             <AspectRatio ratio={2 / 1}>
               <Flex
                 bg={useColorModeValue("white", "gray.900")}
@@ -52,18 +80,17 @@ const PreparationDetailView = ({ preparation }) => {
                 <Image
                   rounded={"md"}
                   alt={"feature image"}
-                  src={hasImage ? fields.image[0].url : '/genericCafe.jpg'}
+                  src={fields.image[0].url}
                   objectFit={"cover"}
                 />
               </Flex>
             </AspectRatio>
-            {!hasImage && <Text size="sm"> *Zurzeit noch ein Platzhalter Foto </Text>}
-                    </Stack>
+          </Stack>
           <Stack>
             <Heading size="md">Feature</Heading>
             <Divider background={"green.50"} />
-            <FeatureView features={fields.features} />
-            </Stack>
+            {/* <FeatureView features={fields.features} /> */}
+          </Stack>
         </Stack>
       </PageTransition>
     </Container>
@@ -82,10 +109,9 @@ export async function getStaticProps({ params }) {
   const preparation = await getPreparationByID(params.id);
   return {
     props: {
-      preparation: preparation
+      preparation: preparation,
     },
   };
 }
 
-export default DetailView;
-
+export default PreparationDetailView;
