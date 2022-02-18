@@ -89,7 +89,7 @@ const PreparationDetailView = ({ preparation }) => {
           <Stack>
             <Heading size="md">Feature</Heading>
             <Divider background={"green.50"} />
-            {/* <FeatureView features={fields.features} /> */}
+            <Text whiteSpace="pre-wrap">{fields.steps}</Text>
           </Stack>
         </Stack>
       </PageTransition>
