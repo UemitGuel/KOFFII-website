@@ -18,7 +18,6 @@ import PageTransition from "../../components/pageTransition";
 
 const PreparationDetailView = ({ preparation }) => {
   const fields = preparation.preparation[0].fields;
-  console.log(preparation.preparation[0].fields)
 
   return (
     <Container maxW={"container.md"}>
