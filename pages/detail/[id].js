@@ -26,7 +26,6 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
   const fields = place.place[0].fields;
   const hasImage = fields.image != null;
   const preparationData = preparationProps.twoRandomPreparations
-  console.log(preparationData)
 
 
   function openMaps() {

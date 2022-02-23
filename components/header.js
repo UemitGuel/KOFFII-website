@@ -81,10 +81,17 @@ const Header = () => {
       borderBottomColor={useColorModeValue("neutral.400", "neutralD.400")}
       shadow="0 0 10px 0 rgba(0,0,0, 0.035);"
     >
-      <Container>
+      <Container maxW={"container.xl"}>
         <VStack align="start" spacing={0}>
-          <HStack justify="space-between" w="100%" h={16}>
-            {/* <AvatarNavigation /> */}
+          <HStack justify="start" w="100%" h={16}>
+            <Link href="/">
+              <Avatar
+                name="KOFFII"
+                size="sm"
+                src="/appIcon.png"
+                cursor="pointer"
+              />
+            </Link>
             <HStack ml={-4} spacing={2}>
               <NavLink href="/" name="Cafés" />
               <NavLink href="/preparation" name="Zubereitung" />
@@ -97,8 +104,7 @@ const Header = () => {
                   onMouseEnter={onOpen}
                   onMouseLeave={onClose}
                   rounded="full"
-                >
-                </MenuButton>
+                ></MenuButton>
               </Menu>
             </HStack>
             {/* <HStack>
