@@ -9,7 +9,7 @@ import {
   Button,
   Divider,
   Link,
-  SimpleGrid
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { MdMap } from "react-icons/md";
 import {
@@ -25,8 +25,7 @@ import PreparationCard from "../../components/preparationCard";
 const DetailView = ({ place, apiKey, preparationProps }) => {
   const fields = place.place[0].fields;
   const hasImage = fields.image != null;
-  const preparationData = preparationProps.twoRandomPreparations
-
+  const preparationData = preparationProps.twoRandomPreparations;
 
   function openMaps() {
     window.open(fields.url, "_blank");
@@ -126,22 +125,25 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
             <Heading size="md">Wusstest du schon?</Heading>
             <Divider background={"green.50"} />
             <SimpleGrid minChildWidth="250px" spacing={8}>
-            {preparationData.map((preparationData) => (
-              <Link href={`/preparationDetail/${preparationData.id}`} unstyled>
-                <PreparationCard
-                  key={preparationData.id}
-                  title={preparationData.fields.title}
-                  quan={preparationData.fields.quan}
-                  time={preparationData.fields.time}
-                  temp={preparationData.fields.temp}
-                  src={preparationData.fields.image[0].url}
-                  isEspresso={preparationData.fields.isEspresso}
-                  isPreparation={preparationData.fields.isPreparation}
-                  steps={preparationData.fields.steps}
-                />
-              </Link>
-            ))}
-          </SimpleGrid>
+              {preparationData.map((preparationData) => (
+                <Link
+                  href={`/preparationDetail/${preparationData.id}`}
+                  unstyled
+                >
+                  <PreparationCard
+                    key={preparationData.id}
+                    title={preparationData.fields.title}
+                    quan={preparationData.fields.quan}
+                    time={preparationData.fields.time}
+                    temp={preparationData.fields.temp}
+                    src={preparationData.fields.image[0].url}
+                    isEspresso={preparationData.fields.isEspresso}
+                    isPreparation={preparationData.fields.isPreparation}
+                    steps={preparationData.fields.steps}
+                  />
+                </Link>
+              ))}
+            </SimpleGrid>
           </Stack>
         </Stack>
       </PageTransition>
@@ -165,7 +167,7 @@ export async function getStaticProps({ params }) {
     props: {
       place: place,
       apiKey: apiKey,
-      preparationProps: preparationProps
+      preparationProps: preparationProps,
     },
   };
 }

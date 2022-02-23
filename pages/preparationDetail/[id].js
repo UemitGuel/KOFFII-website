@@ -8,16 +8,24 @@ import {
   AspectRatio,
   Button,
   Divider,
-  Spacer
+  Spacer,
+  SimpleGrid,
+  Link
 } from "@chakra-ui/react";
 import { MdMap } from "react-icons/md";
-import { getPreparationByID, getPreparationIDs } from "../../lib/airtable";
+import {
+  getPreparationByID,
+  getPreparationIDs,
+  getTwoRandomCafes,
+} from "../../lib/airtable";
 import { chakra, useColorModeValue } from "@chakra-ui/react";
-import FeatureView from "../../components/featureView";
 import PageTransition from "../../components/pageTransition";
+import CoffeeCard from "../../components/coffeeCard";
 
-const PreparationDetailView = ({ preparation }) => {
+const PreparationDetailView = ({ preparation, cafeProps }) => {
   const fields = preparation.preparation[0].fields;
+  console.log(cafeProps)
+  const coffeeData = cafeProps.twoRandomCafes;
 
   return (
     <Container maxW={"container.md"}>
@@ -67,7 +75,7 @@ const PreparationDetailView = ({ preparation }) => {
                 Thema
               </Text>
             )}
-              <Heading>{fields.title}</Heading>
+            <Heading>{fields.title}</Heading>
             <Divider background={"green.50"} />
             <AspectRatio ratio={2 / 1}>
               <Flex
@@ -90,6 +98,22 @@ const PreparationDetailView = ({ preparation }) => {
             <Divider background={"green.50"} />
             <Text whiteSpace="pre-wrap">{fields.steps}</Text>
           </Stack>
+          <Stack>
+            <Heading size="md">Kennst du schon?</Heading>
+            <Divider background={"green.50"} />
+            <SimpleGrid minChildWidth="250px" spacing={8}>
+              {coffeeData.map((coffeeData) => (
+                <Link href={`/detail/${coffeeData.id}`} unstyled>
+                  <CoffeeCard
+                    key={coffeeData.id}
+                    name={coffeeData.fields.name}
+                    hood={coffeeData.fields.hood}
+                    features={coffeeData.fields.features}
+                  />
+                </Link>
+              ))}
+            </SimpleGrid>
+          </Stack>
         </Stack>
       </PageTransition>
     </Container>
@@ -106,9 +130,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const preparation = await getPreparationByID(params.id);
+  const cafeProps = await getTwoRandomCafes();
+
   return {
     props: {
       preparation: preparation,
+      cafeProps: cafeProps,
     },
   };
 }
