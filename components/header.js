@@ -26,9 +26,8 @@ import {
 import NextLink from "next/link";
 import Container from "./container";
 import { useRouter } from "next/router";
-// import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "./themeToggle";
 import Link from "next/link";
-// import AvatarNavigation from "./avatar-navigation";
 
 function NavLink(props) {
   const { href, name, ...rest } = props;
@@ -53,11 +52,11 @@ function NavLink(props) {
         size="md"
         {...rest}
         _activeLink={{
-          color: useColorModeValue("neutral.1100", "neutralD.1100"),
-          bg: useColorModeValue("neutral.100", "neutralD.300"),
+          color: useColorModeValue("neutral.1100", "white"),
+          bg: useColorModeValue("gray.100", "gray.700"),
         }}
         _hover={{
-          bg: useColorModeValue("neutral.200", "neutralD.200"),
+          bg: useColorModeValue("gray.50", "gray.700"),
         }}
         px={4}
       >
@@ -72,7 +71,7 @@ const Header = () => {
 
   return (
     <Box
-      bg={useColorModeValue("white", "neutralD.100")}
+      bg={useColorModeValue("white", "gray.800")}
       display={{ base: "none", md: "block" }}
       position="fixed"
       w="100%"
@@ -83,7 +82,7 @@ const Header = () => {
     >
       <Container maxW={"container.xl"}>
         <VStack align="start" spacing={0}>
-          <HStack justify="start" w="100%" h={16}>
+          <HStack justify="space-between" w="100%" h={16}>
             <Link href="/">
               <Avatar
                 name="KOFFII"
@@ -107,9 +106,9 @@ const Header = () => {
                 ></MenuButton>
               </Menu>
             </HStack>
-            {/* <HStack>
+            <HStack>
               <ThemeToggle />
-            </HStack> */}
+            </HStack>
           </HStack>
         </VStack>
       </Container>
