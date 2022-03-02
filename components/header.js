@@ -52,7 +52,6 @@ function NavLink(props) {
         size="md"
         {...rest}
         _activeLink={{
-          color: useColorModeValue("neutral.1100", "white"),
           bg: useColorModeValue("gray.100", "gray.700"),
         }}
         _hover={{
@@ -77,7 +76,6 @@ const Header = () => {
       w="100%"
       zIndex={99}
       borderBottomWidth="2px"
-      borderBottomColor={useColorModeValue("neutral.400", "neutralD.400")}
       shadow="0 0 10px 0 rgba(0,0,0, 0.035);"
     >
       <Container maxW={"container.xl"}>
@@ -96,10 +94,6 @@ const Header = () => {
               <NavLink href="/preparation" name="Zubereitung" />
               <Menu isOpen={isOpen}>
                 <MenuButton
-                  bg={useColorModeValue("neutral.100", "neutralD.300")}
-                  _hover={{
-                    bg: useColorModeValue("neutral.200", "neutralD.400"),
-                  }}
                   onMouseEnter={onOpen}
                   onMouseLeave={onClose}
                   rounded="full"

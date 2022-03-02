@@ -1,6 +1,7 @@
 import { ChakraProvider, Box } from "@chakra-ui/react";
 import MobileNavigation from "../components/mobileNavigation";
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Box>
       <MobileNavigation />
+      <Footer />
     </ChakraProvider>
   );
 }

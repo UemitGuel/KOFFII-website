@@ -62,9 +62,7 @@ const MobileNavigation = () => {
         py={2}
         mt="auto"
         height={16}
-        bg={useColorModeValue("white", "neutralD.100")}
         borderTopWidth="2px"
-        borderTopColor={useColorModeValue("neutral.400", "neutralD.400")}
         shadow="0 -2px 10px 0 rgba(0,0,0, 0.035);"
       >
         <Center w="100%">
