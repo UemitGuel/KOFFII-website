@@ -25,7 +25,7 @@ const CoffeeCard = ({ name, hood, features }) => {
     >
       <Stack>
         <Text
-          color={"green.700"}
+          color={"green.500"}
           textTransform={"uppercase"}
           fontWeight={800}
           fontSize={"sm"}

@@ -10,11 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Container from "../components/container";
 import NextLink from "next/link";
-import {
-  GithubLogo,
-  LinkedinLogo,
-  TwitterLogo,
-} from "phosphor-react";
+import { GithubLogo, LinkedinLogo, TwitterLogo } from "phosphor-react";
 import Link from "./link";
 
 const Footer = () => {
@@ -28,6 +24,7 @@ const Footer = () => {
         <Button
           variant="unstyled"
           {...rest}
+          _hover={{ color: useColorModeValue("gray.500", "gray.400") }}
         >
           {name}
         </Button>
@@ -61,7 +58,11 @@ const Footer = () => {
               icon={<LinkedinLogo weight="fill" />}
             ></IconButton>
           </Link>
-          <Link href="https://github.com/UemitGuel/KOFFII-website" isExternal unstyled>
+          <Link
+            href="https://github.com/UemitGuel/KOFFII-website"
+            isExternal
+            unstyled
+          >
             <IconButton
               size="sm"
               icon={<GithubLogo weight="fill" />}

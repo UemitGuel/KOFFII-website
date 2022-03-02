@@ -37,7 +37,7 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
         <Stack spacing={10}>
           <Stack>
             <Text
-              color={"green.700"}
+              color={"green.500"}
               textTransform={"uppercase"}
               fontWeight={800}
               fontSize={"sm"}
@@ -52,7 +52,7 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
                 {fields.name} - {fields.noteHeadline}
               </Heading>
             )}
-            <Divider background={"green.50"} />
+            <Divider />
             <AspectRatio ratio={2 / 1}>
               <Flex
                 bg={useColorModeValue("white", "gray.900")}
@@ -74,14 +74,14 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
           </Stack>
           <Stack>
             <Heading size="md">Feature</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <FeatureView features={fields.features} />
           </Stack>
 
           {fields.noteHeadline && (
             <Stack>
               <Heading size="md">Notizen</Heading>
-              <Divider background={"green.50"} />
+              <Divider/>
               <Text color={"gray.500"} fontSize={"lg"}>
                 {fields.note}
               </Text>
@@ -89,12 +89,12 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
           )}
           <Stack>
             <Heading size="md">Karte</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <Button
               w="100%"
               onClick={openMaps}
               leftIcon={<MdMap />}
-              colorScheme="green"
+              colorScheme='linkedin'
               variant="solid"
             >
               In Google Maps anzeigen
@@ -123,7 +123,7 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
           </Stack>
           <Stack>
             <Heading size="md">Wusstest du schon?</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <SimpleGrid minChildWidth="250px" spacing={8}>
               {preparationData.map((preparationData) => (
                 <Link

@@ -35,7 +35,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
             {fields.isPreparation ? (
               <Flex>
                 <Text
-                  color={"green.700"}
+                  color={"green.500"}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -45,7 +45,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
                 </Text>
                 <Spacer />
                 <Text
-                  color={"green.700"}
+                  color={"green.500"}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -55,7 +55,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
                 </Text>
                 <Spacer />
                 <Text
-                  color={"green.700"}
+                  color={"green.500"}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -66,7 +66,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
               </Flex>
             ) : (
               <Text
-                color={"green.700"}
+                color={"green.500"}
                 textTransform={"uppercase"}
                 fontWeight={800}
                 fontSize={"sm"}
@@ -76,7 +76,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
               </Text>
             )}
             <Heading>{fields.title}</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <AspectRatio ratio={2 / 1}>
               <Flex
                 bg={useColorModeValue("white", "gray.900")}
@@ -95,12 +95,12 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
           </Stack>
           <Stack>
             <Heading size="md">Feature</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <Text whiteSpace="pre-wrap">{fields.steps}</Text>
           </Stack>
           <Stack>
             <Heading size="md">Kennst du schon?</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <SimpleGrid minChildWidth="250px" spacing={8}>
               {coffeeData.map((coffeeData) => (
                 <Link href={`/detail/${coffeeData.id}`} unstyled>

@@ -33,7 +33,7 @@ export default function Preparation(props) {
       <PageTransition>
         <Stack spacing={1}>
           <Heading>Zubereitung& mehr</Heading>
-          <Divider background={"green.50"} />
+          <Divider />
           <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
             {preparationData.map((preparationData) => (
               <Link href={`/preparationDetail/${preparationData.id}`} unstyled>

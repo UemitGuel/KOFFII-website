@@ -36,7 +36,7 @@ export default function Home(props) {
         <Stack>
           <Stack spacing={1}>
             <Heading>Meine Lieblingscafés</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
               {spotlightData.map((spotlightData) => (
                 <Link href={`/detail/${spotlightData.id}`} unstyled>
@@ -55,7 +55,7 @@ export default function Home(props) {
           </Stack>
           <Stack spacing={1}>
             <Heading>Weitere Cafés</Heading>
-            <Divider background={"green.50"} />
+            <Divider />
             <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
               {coffeeData.map((coffeeData) => (
                 <Link href={`/detail/${coffeeData.id}`} unstyled>

@@ -30,7 +30,7 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
                 <Stack>
                     <Stack spacing={1}>
                     <Text
-                        color={'green.700'}
+                        color={'green.500'}
                         textTransform={'uppercase'}
                         fontWeight={800}
                         fontSize={'sm'}
@@ -38,7 +38,6 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
                         {hood}
                     </Text>
                     <Heading
-                        color={useColorModeValue('gray.700', 'white')}
                         fontSize={'2xl'}
                         fontFamily={'body'}>
                         {name} - {noteHeadline}

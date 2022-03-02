@@ -29,7 +29,7 @@ const PreparationCard = ({ title, quan, temp, time, src, isEspresso, isPreparati
                     {isPreparation ?
                         <Flex>
                             <Text
-                                color={'green.700'}
+                                color={'green.500'}
                                 textTransform={'uppercase'}
                                 fontWeight={800}
                                 fontSize={'sm'}
@@ -38,7 +38,7 @@ const PreparationCard = ({ title, quan, temp, time, src, isEspresso, isPreparati
                             </Text>
                             <Spacer />
                             <Text
-                                color={'green.700'}
+                                color={'green.500'}
                                 textTransform={'uppercase'}
                                 fontWeight={800}
                                 fontSize={'sm'}
@@ -47,7 +47,7 @@ const PreparationCard = ({ title, quan, temp, time, src, isEspresso, isPreparati
                             </Text>
                             <Spacer />
                             <Text
-                                color={'green.700'}
+                                color={'green.500'}
                                 textTransform={'uppercase'}
                                 fontWeight={800}
                                 fontSize={'sm'}
@@ -57,7 +57,7 @@ const PreparationCard = ({ title, quan, temp, time, src, isEspresso, isPreparati
                         </Flex>
                         :
                         <Text
-                        color={'green.700'}
+                        color={'green.500'}
                         textTransform={'uppercase'}
                         fontWeight={800}
                         fontSize={'sm'}
