@@ -30,8 +30,8 @@ export default function Home(props) {
   const spotlightData = props.spotlightData;
   const coffeeData = props.coffeeData.sort(function (x, y) {
     console.log(y)
-    let a = (x.name || '').toUpperCase(),
-      b = (y.name || '').toUpperCase();
+    let a = (x.fields.hood || '').toUpperCase(),
+      b = (y.fields.hood || '').toUpperCase();
     return a == b ? 0 : a > b ? 1 : -1;
   })
 
