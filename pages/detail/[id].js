@@ -82,7 +82,7 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
             <Stack>
               <Heading size="md">Notizen</Heading>
               <Divider/>
-              <Text color={"gray.500"} fontSize={"lg"}>
+              <Text fontSize={"lg"}>
                 {fields.note}
               </Text>
             </Stack>

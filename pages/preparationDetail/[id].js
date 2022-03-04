@@ -24,7 +24,6 @@ import CoffeeCard from "../../components/coffeeCard";
 
 const PreparationDetailView = ({ preparation, cafeProps }) => {
   const fields = preparation.preparation[0].fields;
-  console.log(cafeProps)
   const coffeeData = cafeProps.twoRandomCafes;
 
   return (

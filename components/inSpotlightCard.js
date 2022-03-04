@@ -8,7 +8,6 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
             transition="all 0.3s"
             transition-timing-function="spring(1 100 10 10)"
             _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
-            maxW={'450px'}
             bg={useColorModeValue('white', 'gray.900')}
             boxShadow={'2xl'}
             rounded={'md'}
@@ -43,7 +42,7 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
                         {name} - {noteHeadline}
                     </Heading>
                     </Stack>
-                    <Text color={'gray.500'} noOfLines={5}> {note} </Text>
+                    <Text noOfLines={5}> {note} </Text>
                     <Spacer />
                     <FeatureView features={features}/>
             </Stack>

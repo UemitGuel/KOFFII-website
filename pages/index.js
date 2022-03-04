@@ -28,7 +28,12 @@ export async function getStaticProps() {
 
 export default function Home(props) {
   const spotlightData = props.spotlightData;
-  const coffeeData = props.coffeeData;
+  const coffeeData = props.coffeeData.sort(function (x, y) {
+    console.log(y)
+    let a = (x.name || '').toUpperCase(),
+      b = (y.name || '').toUpperCase();
+    return a == b ? 0 : a > b ? 1 : -1;
+  })
 
   return (
     <Container maxW="container.xl">
@@ -37,7 +42,7 @@ export default function Home(props) {
           <Stack spacing={1}>
             <Heading>Meine Lieblingscafés</Heading>
             <Divider />
-            <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
+            <SimpleGrid minChildWidth="350px" spacing={8} py={8}>
               {spotlightData.map((spotlightData) => (
                 <Link href={`/detail/${spotlightData.id}`} unstyled>
                   <InSpotlightCard
@@ -58,15 +63,15 @@ export default function Home(props) {
             <Divider />
             <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
               {coffeeData.map((coffeeData) => (
-                <Link href={`/detail/${coffeeData.id}`} unstyled>
-                  <CoffeeCard
-                    key={coffeeData.id}
-                    name={coffeeData.fields.name}
-                    hood={coffeeData.fields.hood}
-                    features={coffeeData.fields.features}
-                  />
-                </Link>
-              ))}
+                  <Link href={`/detail/${coffeeData.id}`} unstyled>
+                    <CoffeeCard
+                      key={coffeeData.id}
+                      name={coffeeData.fields.name}
+                      hood={coffeeData.fields.hood}
+                      features={coffeeData.fields.features}
+                    />
+                  </Link>
+                ))}
             </SimpleGrid>
           </Stack>
         </Stack>
