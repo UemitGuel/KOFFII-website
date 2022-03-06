@@ -52,10 +52,10 @@ function NavLink(props) {
         size="md"
         {...rest}
         _activeLink={{
-          bg: useColorModeValue("gray.100", "gray.700"),
+          bg: useColorModeValue('neutral.400', 'neutralD.400'),
         }}
         _hover={{
-          bg: useColorModeValue("gray.50", "gray.700"),
+          bg: useColorModeValue("'neutral.300', 'neutralD.300'"),
         }}
         px={4}
       >
@@ -70,12 +70,13 @@ const Header = () => {
 
   return (
     <Box
-      bg={useColorModeValue("white", "gray.800")}
+      bg={useColorModeValue('neutral.100', 'neutralD.100')}
       display={{ base: "none", md: "block" }}
       position="fixed"
       w="100%"
       zIndex={99}
-      borderBottomWidth="2px"
+      borderBottomWidth="1px"
+      borderColor={useColorModeValue('neutral.300', 'neutralD.300')}
       shadow="0 0 10px 0 rgba(0,0,0, 0.035);"
     >
       <Container maxW={"container.xl"}>

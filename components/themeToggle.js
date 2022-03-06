@@ -6,6 +6,7 @@ import {
   ScaleFade,
   Tooltip,
   Button,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { MdOutlineWbSunny, MdOutlineBedtime } from "react-icons/md";
 import useSound from "use-sound";
@@ -46,6 +47,7 @@ const ThemeToggle = ({ mobile }) => {
         </Button>
       ) : (
         <IconButton
+          backgroundColor={useColorModeValue('neutral.300', 'neutralD.300')}
           isRound
           aria-label="Switch theme"
           variant={mobile ? "ghost" : undefined}

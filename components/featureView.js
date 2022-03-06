@@ -18,7 +18,7 @@ const FeatureView = ({ features }) => {
   return (
     <Flex 
         color={'white'}
-        bg={'green.500'}
+        bg={useColorModeValue('neutral.900', 'neutralD.800')}
         rounded={"md"}
         p={2}
     >
