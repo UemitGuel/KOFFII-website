@@ -37,7 +37,7 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
         <Stack spacing={10}>
           <Stack>
             <Text
-              color={"green.500"}
+              color={"neutral.500"}
               textTransform={"uppercase"}
               fontWeight={800}
               fontSize={"sm"}
@@ -45,21 +45,10 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
             >
               {fields.hood}
             </Text>
-            {fields.noteHeadline != null ? (
-              <Heading>{fields.name}</Heading>
-            ) : (
-              <Heading>
-                {fields.name} - {fields.noteHeadline}
-              </Heading>
-            )}
+            <Heading>{fields.name}</Heading>
             <Divider />
             <AspectRatio ratio={2 / 1}>
-              <Flex
-                bg={useColorModeValue("white", "gray.900")}
-                boxShadow={"2xl"}
-                rounded={"md"}
-                overflow={"hidden"}
-              >
+              <Flex boxShadow={"2xl"} rounded={"md"} overflow={"hidden"}>
                 <Image
                   rounded={"md"}
                   alt={"feature image"}
@@ -81,31 +70,15 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
           {fields.noteHeadline && (
             <Stack>
               <Heading size="md">Notizen</Heading>
-              <Divider/>
-              <Text fontSize={"lg"}>
-                {fields.note}
-              </Text>
+              <Divider />
+              <Text fontSize={"lg"}>{fields.note}</Text>
             </Stack>
           )}
           <Stack>
             <Heading size="md">Karte</Heading>
             <Divider />
-            <Button
-              w="100%"
-              onClick={openMaps}
-              leftIcon={<MdMap />}
-              colorScheme='linkedin'
-              variant="solid"
-            >
-              In Google Maps anzeigen
-            </Button>
             <AspectRatio ratio={2 / 1}>
-              <Flex
-                bg={useColorModeValue("white", "gray.900")}
-                boxShadow={"2xl"}
-                rounded={"md"}
-                overflow={"hidden"}
-              >
+              <Flex boxShadow={"2xl"} rounded={"md"} overflow={"hidden"}>
                 <iframe
                   width="100%"
                   height="450"
@@ -120,6 +93,15 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
                 ></iframe>
               </Flex>
             </AspectRatio>
+            <Button
+              w="100%"
+              onClick={openMaps}
+              leftIcon={<MdMap />}
+              backgroundColor={useColorModeValue("neutral.500", "neutralD.500")}
+              variant="solid"
+            >
+              In Google Maps anzeigen
+            </Button>
           </Stack>
           <Stack>
             <Heading size="md">Wusstest du schon?</Heading>

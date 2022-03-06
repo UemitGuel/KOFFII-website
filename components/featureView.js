@@ -1,5 +1,14 @@
 import { React } from "react";
-import { Flex, Spacer, Center, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Spacer,
+  Center,
+  useColorModeValue,
+  Tag,
+  TagLabel,
+  TagRightIcon,
+  SimpleGrid
+} from "@chakra-ui/react";
 import {
   MdWifi,
   MdWifiOff,
@@ -9,61 +18,71 @@ import {
   MdPower,
   MdPowerOff,
 } from "react-icons/md";
+import FeatureTag from "./featureTag";
 
 const FeatureView = ({ features }) => {
   const opacity = 0.2;
-  const sizehasFeature = 30;
   const sizeDontHasFeature = 20;
 
   return (
-    <Flex 
-        color={'white'}
-        bg={useColorModeValue('neutral.900', 'neutralD.800')}
-        rounded={"md"}
-        p={2}
-    >
-      <Spacer />
+    <SimpleGrid columns={2} spacing={4}>
+      <Box>
       {features.includes("hasWifi") ? (
-        <Center>
-          <MdWifi size={sizehasFeature} />
-        </Center>
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%' >
+          <Spacer />
+          <TagLabel>WIFI</TagLabel>
+          <TagRightIcon as={MdWifi} />
+          <Spacer />
+        </Tag>
       ) : (
         <Center>
           <MdWifiOff opacity={opacity} size={sizeDontHasFeature} />
         </Center>
       )}
-      <Spacer />
+      </Box>
+      <Box w='100%'>
       {features.includes("hasFood") ? (
-        <Center>
-          <MdLocalDining size={sizehasFeature} />
-        </Center>
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%'>
+          <Spacer />
+        <TagLabel>LUNCH</TagLabel>
+        <TagRightIcon as={MdLocalDining} />
+        <Spacer />
+      </Tag>
       ) : (
         <Center>
           <MdNoMeals opacity={opacity} size={sizeDontHasFeature} />
         </Center>
       )}
-      <Spacer />
+      </Box>
+      <Box>
       {features.includes("hasVegan") ? (
-        <Center>
-          <MdLocalFlorist size={sizehasFeature} />
-        </Center>
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%' >
+          <Spacer />
+        <TagLabel>VEGAN</TagLabel>
+        <TagRightIcon as={MdLocalFlorist} />
+        <Spacer />
+      </Tag>
       ) : (
         <Center>
           <MdLocalFlorist opacity={opacity} size={sizeDontHasFeature} />
         </Center>
       )}
-      <Spacer />
+      </Box>
+      <Box>
       {features.includes("hasPlug") ? (
-        <Center>
-          <MdPower size={sizehasFeature} />
-        </Center>
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%' >
+          <Spacer />
+        <TagLabel>STROM</TagLabel>
+        <TagRightIcon as={MdPower} />
+        <Spacer />
+      </Tag>
       ) : (
         <Center>
           <MdPowerOff opacity={opacity} size={sizeDontHasFeature} />
         </Center>
       )}
-      <Spacer />
-    </Flex>
+      </Box>
+    </SimpleGrid>
   );
 };
 

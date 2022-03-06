@@ -94,7 +94,7 @@ export default function Home(props) {
               (coffee) => coffee.fields.hood == "Innenstadt"
             )}
           />
-                    <HoodSection
+          <HoodSection
             sectionTitle={"Latin Quarter"}
             data={coffeeData.filter(
               (coffee) => coffee.fields.hood == "Latin Quarter"

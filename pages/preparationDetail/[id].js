@@ -34,7 +34,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
             {fields.isPreparation ? (
               <Flex>
                 <Text
-                  color={"green.500"}
+                  color={useColorModeValue('neutral.900', 'neutralD.900')}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -44,7 +44,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
                 </Text>
                 <Spacer />
                 <Text
-                  color={"green.500"}
+                  color={useColorModeValue('neutral.900', 'neutralD.900')}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -54,7 +54,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
                 </Text>
                 <Spacer />
                 <Text
-                  color={"green.500"}
+                  color={useColorModeValue('neutral.900', 'neutralD.900')}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -65,7 +65,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
               </Flex>
             ) : (
               <Text
-                color={"green.500"}
+                color={useColorModeValue('neutral.900', 'neutralD.900')}
                 textTransform={"uppercase"}
                 fontWeight={800}
                 fontSize={"sm"}
@@ -78,7 +78,6 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
             <Divider />
             <AspectRatio ratio={2 / 1}>
               <Flex
-                bg={useColorModeValue("white", "gray.900")}
                 boxShadow={"2xl"}
                 rounded={"md"}
                 overflow={"hidden"}

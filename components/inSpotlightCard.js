@@ -39,7 +39,7 @@ const InSpotlightCard = ({ name, hood, note, noteHeadline, src, features }) => {
                     <Heading
                         fontSize={'2xl'}
                         fontFamily={'body'}>
-                        {name} - {noteHeadline}
+                        {name}
                     </Heading>
                     </Stack>
                     <Text noOfLines={5}> {note} </Text>
