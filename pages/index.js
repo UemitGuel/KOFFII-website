@@ -14,6 +14,7 @@ import { React, useState } from "react";
 import CoffeeCard from "../components/coffeeCard";
 import Link from "../components/link";
 import PageTransition from "../components/pageTransition";
+import HoodSection from "../components/hoodSection";
 
 export async function getStaticProps() {
   const coffeeData = await getCoffeePlaces();
@@ -28,12 +29,13 @@ export async function getStaticProps() {
 
 export default function Home(props) {
   const spotlightData = props.spotlightData;
-  const coffeeData = props.coffeeData.sort(function (x, y) {
-    console.log(y)
-    let a = (x.fields.hood || '').toUpperCase(),
-      b = (y.fields.hood || '').toUpperCase();
-    return a == b ? 0 : a > b ? 1 : -1;
-  })
+  // const coffeeData = props.coffeeData.sort(function (x, y) {
+  //   console.log(y)
+  //   let a = (x.fields.hood || '').toUpperCase(),
+  //     b = (y.fields.hood || '').toUpperCase();
+  //   return a == b ? 0 : a > b ? 1 : -1;
+  // })
+  const coffeeData = props.coffeeData;
 
   return (
     <Container maxW="container.xl">
@@ -58,22 +60,46 @@ export default function Home(props) {
               ))}
             </SimpleGrid>
           </Stack>
-          <Stack spacing={1}>
-            <Heading>Weitere Cafés</Heading>
-            <Divider />
-            <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
-              {coffeeData.map((coffeeData) => (
-                  <Link href={`/detail/${coffeeData.id}`} unstyled>
-                    <CoffeeCard
-                      key={coffeeData.id}
-                      name={coffeeData.fields.name}
-                      hood={coffeeData.fields.hood}
-                      features={coffeeData.fields.features}
-                    />
-                  </Link>
-                ))}
-            </SimpleGrid>
-          </Stack>
+          <HoodSection
+            sectionTitle={"Belgisches Viertel"}
+            data={coffeeData.filter(
+              (coffee) => coffee.fields.hood == "Belgisches Viertel"
+            )}
+          />
+          <HoodSection
+            sectionTitle={"Südstadt"}
+            data={coffeeData.filter(
+              (coffee) => coffee.fields.hood == "Südstadt"
+            )}
+          />
+          <HoodSection
+            sectionTitle={"Lindenthal& Sülz"}
+            data={coffeeData.filter(
+              (coffee) => coffee.fields.hood == "Lindenthal/Sülz"
+            )}
+          />
+          <HoodSection
+            sectionTitle={"Nippes"}
+            data={coffeeData.filter((coffee) => coffee.fields.hood == "Nippes")}
+          />
+          <HoodSection
+            sectionTitle={"Deutz& Kalk"}
+            data={coffeeData.filter(
+              (coffee) => coffee.fields.hood == "Deutz/Kalk"
+            )}
+          />
+          <HoodSection
+            sectionTitle={"Innenstadt"}
+            data={coffeeData.filter(
+              (coffee) => coffee.fields.hood == "Innenstadt"
+            )}
+          />
+                    <HoodSection
+            sectionTitle={"Latin Quarter"}
+            data={coffeeData.filter(
+              (coffee) => coffee.fields.hood == "Latin Quarter"
+            )}
+          />
         </Stack>
       </PageTransition>
     </Container>

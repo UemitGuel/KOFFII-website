@@ -16,7 +16,7 @@ const CoffeeCard = ({ name, hood, features }) => {
       transition="all 0.3s"
       transition-timing-function="spring(1 100 10 10)"
       _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue('neutral.100', 'neutralD.100')}
       boxShadow={"2xl"}
       rounded={"md"}
       p={6}

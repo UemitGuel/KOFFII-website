@@ -18,29 +18,32 @@ const transformRadixToChakraFormat = (scale) => {
 
   console.log(output)
   return output;
-};
+}; 
 
-const radixNeutral = transformRadixToChakraFormat(sand);
-const radixNeutralDark = transformRadixToChakraFormat(sandDark);
-const goldNeutral = transformRadixToChakraFormat(sand);
-const goldNeutralDark = transformRadixToChakraFormat(sandDark);
+const radixNeutral = transformRadixToChakraFormat(olive);
+const radixNeutralDark = transformRadixToChakraFormat(oliveDark);
 
 const theme = extendTheme({
+    initialColorMode: 'dark',
     styles: {
         global: (props) => ({
           body: {
             bg: mode('neutral.100', 'neutralD.50')(props),
+            colors: mode('white', 'black')(props),
           },
         }),
       },
   colors: {    
     neutral: {
-      ...goldNeutral,
+      ...radixNeutral,
     },
     neutralD: {
-      ...goldNeutralDark,
+      ...radixNeutralDark,
     },
   },
 });
 
 export default theme;
+
+//Notes
+// useColorModeValue('neutral.100', 'neutralD.100') -> secondaryBackground

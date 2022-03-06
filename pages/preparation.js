@@ -34,7 +34,7 @@ export default function Preparation(props) {
         <Stack spacing={1}>
           <Heading>Zubereitung& mehr</Heading>
           <Divider />
-          <SimpleGrid minChildWidth="250px" spacing={8} py={8}>
+          <SimpleGrid minChildWidth="350px" spacing={8} py={8}>
             {preparationData.map((preparationData) => (
               <Link href={`/preparationDetail/${preparationData.id}`} unstyled>
                 <PreparationCard
