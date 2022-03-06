@@ -22,8 +22,8 @@ const transformRadixToChakraFormat = (scale) => {
 
 const radixNeutral = transformRadixToChakraFormat(sand);
 const radixNeutralDark = transformRadixToChakraFormat(sandDark);
-const goldNeutral = transformRadixToChakraFormat(olive);
-const goldNeutralDark = transformRadixToChakraFormat(oliveDark);
+const goldNeutral = transformRadixToChakraFormat(sand);
+const goldNeutralDark = transformRadixToChakraFormat(sandDark);
 
 const theme = extendTheme({
     styles: {
