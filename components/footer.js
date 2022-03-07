@@ -69,7 +69,6 @@ const Footer = () => {
             ></IconButton>
           </Link>
         </HStack>
-        <FooterLink href="/privacy" name="Privacy" />
       </HStack>
     </Container>
   );
