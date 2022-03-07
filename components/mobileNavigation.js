@@ -1,17 +1,18 @@
 import React from "react";
 import {
   Box,
-  Center,
+  Spacer,
   HStack,
   IconButton,
   useColorModeValue,
   Button,
   VStack,
 } from "@chakra-ui/react";
-import { MdWifi, MdLocalDining} from "react-icons/md";
+import { MdWifi, MdLocalDining } from "react-icons/md";
 import { motion, useCycle } from "framer-motion";
 import MobileMenuButton from "./mobileMenuButton";
 import Link from "next/link";
+import ThemeToggle from "./themeToggle";
 
 const MobileNavigation = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -55,6 +56,7 @@ const MobileNavigation = () => {
       right="0"
       left="0"
       display={{ base: "block", md: "none" }}
+      backgroundColor={useColorModeValue("neutral.100", "neutralD.100")}
     >
       <HStack
         justify="space-around"
@@ -64,23 +66,16 @@ const MobileNavigation = () => {
         height={16}
         borderTopWidth="2px"
         shadow="0 -2px 10px 0 rgba(0,0,0, 0.035);"
+        px={4}
       >
-        <Center w="100%">
-          <Link href="/blog" px={6}>
-            <MobileMenuButton
-              label="Blog"
-              icon={<MdWifi />}
-            ></MobileMenuButton>
+          <Link href="/" px={6}>
+            <Button variant="outline">Cafés</Button>
           </Link>
-        </Center>
-        <Center w="100%">
-          <Link href="/newsletter" px={6}>
-            <MobileMenuButton
-              label="Newsletter"
-              icon={<MdLocalDining />}
-            ></MobileMenuButton>
+          <Link href="/preparation" px={6}>
+            <Button variant="outline">Zubereitung& mehr</Button>
           </Link>
-        </Center>
+          <Spacer/>
+        <ThemeToggle/>
       </HStack>
     </MotionBox>
   );
