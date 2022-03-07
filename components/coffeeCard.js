@@ -8,7 +8,7 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import React from "react";
-import FeatureView from "./featureView";
+import MiniFeatureView from "./miniFeatureView";
 
 const CoffeeCard = ({ name, hood, features }) => {
   return (
@@ -19,6 +19,7 @@ const CoffeeCard = ({ name, hood, features }) => {
       bg={useColorModeValue('neutral.100', 'neutralD.100')}
       boxShadow={"2xl"}
       rounded={"md"}
+      maxW={'350'}
       p={6}
       overflow={"hidden"}
     >
@@ -40,7 +41,7 @@ const CoffeeCard = ({ name, hood, features }) => {
           {name}
         </Heading>
         <Spacer />
-        <FeatureView features={features} />
+        <MiniFeatureView features={features} />
       </Stack>
     </Box>
   );

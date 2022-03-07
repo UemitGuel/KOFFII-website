@@ -97,7 +97,8 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
               w="100%"
               onClick={openMaps}
               leftIcon={<MdMap />}
-              backgroundColor={useColorModeValue("neutral.500", "neutralD.500")}
+              backgroundColor={useColorModeValue('neutral.900', 'neutralD.900')}
+              color={'white'}
               variant="solid"
             >
               In Google Maps anzeigen

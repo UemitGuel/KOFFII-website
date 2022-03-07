@@ -28,7 +28,7 @@ const FeatureView = ({ features }) => {
     <SimpleGrid columns={2} spacing={4}>
       <Box>
       {features.includes("hasWifi") ? (
-        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%' >
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={useColorModeValue('neutral.1100', 'neutralD.1100')} w='100%' >
           <Spacer />
           <TagLabel>WIFI</TagLabel>
           <TagRightIcon as={MdWifi} />
@@ -42,7 +42,7 @@ const FeatureView = ({ features }) => {
       </Box>
       <Box w='100%'>
       {features.includes("hasFood") ? (
-        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%'>
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={useColorModeValue('neutral.1100', 'neutralD.1100')} w='100%'>
           <Spacer />
         <TagLabel>LUNCH</TagLabel>
         <TagRightIcon as={MdLocalDining} />
@@ -56,7 +56,7 @@ const FeatureView = ({ features }) => {
       </Box>
       <Box>
       {features.includes("hasVegan") ? (
-        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%' >
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={useColorModeValue('neutral.1100', 'neutralD.1100')} w='100%' >
           <Spacer />
         <TagLabel>VEGAN</TagLabel>
         <TagRightIcon as={MdLocalFlorist} />
@@ -70,7 +70,7 @@ const FeatureView = ({ features }) => {
       </Box>
       <Box>
       {features.includes("hasPlug") ? (
-        <Tag size={"lg"} key={"wifi"} variant="outline" color={"white"} w='100%' >
+        <Tag size={"lg"} key={"wifi"} variant="outline" color={useColorModeValue('neutral.1100', 'neutralD.1100')} w='100%' >
           <Spacer />
         <TagLabel>STROM</TagLabel>
         <TagRightIcon as={MdPower} />

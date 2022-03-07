@@ -10,7 +10,7 @@ import {
   Divider,
   Spacer,
   SimpleGrid,
-  Link
+  Link,
 } from "@chakra-ui/react";
 import { MdMap } from "react-icons/md";
 import {
@@ -34,7 +34,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
             {fields.isPreparation ? (
               <Flex>
                 <Text
-                  color={useColorModeValue('neutral.900', 'neutralD.900')}
+                  color={useColorModeValue("neutral.900", "neutralD.900")}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -44,7 +44,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
                 </Text>
                 <Spacer />
                 <Text
-                  color={useColorModeValue('neutral.900', 'neutralD.900')}
+                  color={useColorModeValue("neutral.900", "neutralD.900")}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -54,7 +54,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
                 </Text>
                 <Spacer />
                 <Text
-                  color={useColorModeValue('neutral.900', 'neutralD.900')}
+                  color={useColorModeValue("neutral.900", "neutralD.900")}
                   textTransform={"uppercase"}
                   fontWeight={800}
                   fontSize={"sm"}
@@ -65,7 +65,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
               </Flex>
             ) : (
               <Text
-                color={useColorModeValue('neutral.900', 'neutralD.900')}
+                color={useColorModeValue("neutral.900", "neutralD.900")}
                 textTransform={"uppercase"}
                 fontWeight={800}
                 fontSize={"sm"}
@@ -77,11 +77,7 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
             <Heading>{fields.title}</Heading>
             <Divider />
             <AspectRatio ratio={2 / 1}>
-              <Flex
-                boxShadow={"2xl"}
-                rounded={"md"}
-                overflow={"hidden"}
-              >
+              <Flex boxShadow={"2xl"} rounded={"md"} overflow={"hidden"}>
                 <Image
                   rounded={"md"}
                   alt={"feature image"}
@@ -92,7 +88,11 @@ const PreparationDetailView = ({ preparation, cafeProps }) => {
             </AspectRatio>
           </Stack>
           <Stack>
-            <Heading size="md">Feature</Heading>
+            {fields.isPreparation ? (
+              <Heading size="md">Schritte</Heading>
+            ) : (
+              <Heading size="md">Erklärung</Heading>
+            )}
             <Divider />
             <Text whiteSpace="pre-wrap">{fields.steps}</Text>
           </Stack>
