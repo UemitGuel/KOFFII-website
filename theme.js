@@ -1,6 +1,15 @@
 import { extendTheme } from "@chakra-ui/react";
-import { sand, sandDark, gold, goldDark, bronze, bronzeDark, olive, oliveDark } from "@radix-ui/colors";
-import { mode } from '@chakra-ui/theme-tools'
+import {
+  sand,
+  sandDark,
+  gold,
+  goldDark,
+  bronze,
+  bronzeDark,
+  olive,
+  oliveDark,
+} from "@radix-ui/colors";
+import { mode } from "@chakra-ui/theme-tools";
 import { useColorModeValue } from "@chakra-ui/react";
 
 const transformRadixToChakraFormat = (scale) => {
@@ -16,24 +25,25 @@ const transformRadixToChakraFormat = (scale) => {
     {}
   );
 
-  console.log(output)
+  console.log(output);
   return output;
-}; 
+};
 
 const radixNeutral = transformRadixToChakraFormat(olive);
 const radixNeutralDark = transformRadixToChakraFormat(oliveDark);
 
 const theme = extendTheme({
-    initialColorMode: 'dark',
-    styles: {
-        global: (props) => ({
-          body: {
-            bg: mode('neutral.100', 'neutralD.50')(props),
-            colors: mode('white', 'black')(props),
-          },
-        }),
+  useSystemColorMode: true,
+  initialColorMode: "dark",
+  styles: {
+    global: (props) => ({
+      body: {
+        bg: mode("neutral.100", "neutralD.50")(props),
+        colors: mode("white", "black")(props),
       },
-  colors: {    
+    }),
+  },
+  colors: {
     neutral: {
       ...radixNeutral,
     },
