@@ -69,6 +69,7 @@ const Footer = () => {
             ></IconButton>
           </Link>
         </HStack>
+        <FooterLink href="https://apps.apple.com/de/app/koffii-cologne/id1462659665" name="iOS App" />
       </HStack>
     </Container>
   );

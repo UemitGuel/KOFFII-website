@@ -77,7 +77,6 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
           <Stack>
             <Heading size="md">Karte</Heading>
             <Divider />
-            <AspectRatio ratio={2 / 1}>
               <Flex boxShadow={"2xl"} rounded={"md"} overflow={"hidden"}>
                 <iframe
                   width="100%"
@@ -92,7 +91,6 @@ const DetailView = ({ place, apiKey, preparationProps }) => {
                   }
                 ></iframe>
               </Flex>
-            </AspectRatio>
             <Button
               w="100%"
               onClick={openMaps}
