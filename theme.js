@@ -33,8 +33,10 @@ const radixNeutral = transformRadixToChakraFormat(olive);
 const radixNeutralDark = transformRadixToChakraFormat(oliveDark);
 
 const theme = extendTheme({
-  useSystemColorMode: true,
-  initialColorMode: "dark",
+  config: {
+    useSystemColorMode: false,
+    initialColorMode: "dark"
+  },
   styles: {
     global: (props) => ({
       body: {
