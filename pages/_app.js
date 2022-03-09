@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <title>KOFFII Cologne - Finde dein Cafè zum arbeiten</title>
         <link rel="icon" type="image/png" sizes="96x96" href="/appIcon.png" />
         <meta name="theme-color" content="#2BB0EC" />
       </Head>
