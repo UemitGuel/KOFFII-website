@@ -9,9 +9,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Head>
-        <title>This page has a title 🤔</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/appIcon.png" />
+        <meta name="theme-color" content="#2BB0EC" />
       </Head>
       <Header />
       <Box as="main" pt={{ base: 16, md: 32 }} pb={{ base: 24, md: 16 }}>
