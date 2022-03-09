@@ -13,6 +13,10 @@ function MyApp({ Component, pageProps }) {
         <title>KOFFII Cologne - Finde dein Cafè zum arbeiten</title>
         <link rel="icon" type="image/png" sizes="96x96" href="/appIcon.png" />
         <meta name="theme-color" content="#2BB0EC" />
+        <meta property="og:title" content="Ümit Gül" />
+        <meta property="og:description" content="Finde dein Cafè in Köln zum arbeiten" />
+        <meta property="og:url" content="https://www.koffii.xyz" />
+        <meta property="og:type" content="website" />
       </Head>
       <Header />
       <Box as="main" pt={{ base: 16, md: 32 }} pb={{ base: 24, md: 16 }}>
