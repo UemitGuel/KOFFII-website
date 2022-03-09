@@ -8,6 +8,7 @@ import {
   Flex,
   IconButton,
   Stack,
+  Spacer,
 } from "@chakra-ui/react";
 import InSpotlightCard from "../components/inSpotlightCard";
 import { React, useState } from "react";

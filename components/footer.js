@@ -2,8 +2,8 @@ import React from "react";
 import {
   HStack,
   Button,
-  useColorMode,
-  Text,
+  StackDivider,
+  Spacer,
   useColorModeValue,
   IconButton,
   Icon,
@@ -40,7 +40,12 @@ const Footer = () => {
         display={{ base: "none", md: "flex" }}
         my={8}
       >
-        <FooterLink href="mailto:uemitgul@gmail.com" name="Contact" />
+        <HStack divider={<StackDivider borderColor='gray.200'/>}>
+        <FooterLink href="mailto:uemitgul@gmail.com" name="Kontakt" />
+        <FooterLink href="/impressum" name="Impressum" />
+        <FooterLink href="/datenschutz" name="Datenschutz" />
+        </HStack>
+        <Spacer />
         <HStack spacing={4}>
           <Link href="https://twitter.com/uemit_eth" isExternal unstyled>
             <IconButton
@@ -69,7 +74,11 @@ const Footer = () => {
             ></IconButton>
           </Link>
         </HStack>
-        <FooterLink href="https://apps.apple.com/de/app/koffii-cologne/id1462659665" name="iOS App" />
+        <Spacer />
+        <FooterLink
+          href="https://apps.apple.com/de/app/koffii-cologne/id1462659665"
+          name="iOS App"
+        />
       </HStack>
     </Container>
   );
