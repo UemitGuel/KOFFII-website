@@ -4,7 +4,7 @@ import {
   VStack,
   HStack,
   Button,
-  IconButton,
+  Image,
   useColorMode,
   Text,
   Box,
@@ -83,12 +83,23 @@ const Header = () => {
         <VStack align="start" spacing={0}>
           <HStack justify="space-between" w="100%" h={16}>
             <Link href="/">
-              <Avatar
-                name="KOFFII"
-                size="sm"
-                src="/appIcon.png"
-                cursor="pointer"
-              />
+              <Box
+                transition="all 0.3s"
+                transition-timing-function="spring(1 100 10 10)"
+                _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
+                boxShadow={"2xl"}
+                width={'20'}
+                height={'20'}
+                rounded={"md"}
+                p={6}
+                overflow={"hidden"}
+              >
+                <Image
+                  src={"/appIcon.png"}
+                  layout={'fill'}
+                  rounded={'md'}
+                />
+                </Box>
             </Link>
             <HStack ml={-4} spacing={2}>
               <NavLink href="/" name="Cafés" />

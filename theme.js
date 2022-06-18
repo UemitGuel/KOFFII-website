@@ -24,8 +24,6 @@ const transformRadixToChakraFormat = (scale) => {
     },
     {}
   );
-
-  console.log(output);
   return output;
 };
 
