@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:description" content="Finde dein Cafè in Köln zum arbeiten" />
         <meta property="og:url" content="https://www.koffii.xyz" />
         <meta property="og:type" content="website" />
+        <meta name="apple-itunes-app" content="app-id=1462659665"></meta>
       </Head>
       <Header />
       <Box as="main" pt={{ base: 16, md: 32 }} pb={{ base: 24, md: 16 }}>
